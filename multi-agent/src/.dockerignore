@@ -1,8 +1,0 @@
-# from web
-**/.devcontainer
-**/build
-**/node_modules
-README.md
-
-# from api
-evaluations
