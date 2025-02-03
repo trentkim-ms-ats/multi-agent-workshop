@@ -436,7 +436,7 @@
 
 ### **STEP 3: Hands-on Lab (45 minutes)**
 
-- **Notebook (/xxxx/xxxx/xxxx/notebook.ipynb) 실행**
+- **Notebook (multi-agent-workshop/notebook.ipynb) 실행**
     - **환경 설정**
         - **.env 파일 편집 (**아래 3가지 API 키를 .env 파일에 업데이트)
             - OPENAI_API_KEY=<YOUR_API_KEY>
