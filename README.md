@@ -2276,3 +2276,10 @@
         
         No agent selected.
         ```
+
+## **Clean Up**
+
+### Hands-on Lab Part 1: Build a Multi-Agent Application 자원 삭제
+        
+    azd down
+        
