@@ -1385,11 +1385,16 @@
 ### **STEP 1: Magentic-One 이해**
 
 - **Magentic-One은 다음과 같은 에이전트로 구성됩니다.**
-    - **Orchestrator**: 작업 분해, 계획 수립, 다른 에이전트의 하위 작업 실행 지시, 전체 진행 상황 추적 및 필요한 경우 수정 조치를 수행하는 주요 에이전트
-    - **WebSurfer**: Chromium 기반 웹 브라우저의 상태를 제어하고 관리하는 LLM 기반 에이전트로 URL 방문, 검색 수행 같은 탐색 작업, 클릭 및 입력과 같은 웹페이지 상호작용, 요약 및 질문 응답과 같은 읽기 작업을 수행하며, 웹페이지의 새로운 상태를 보고. WebSurfer는 브라우저의 접근성 트리와 “set-of-marks” 프롬프팅을 활용하여 작업을 수행
-    - **FileSurfer**: 마크다운 기반 파일 미리보기 애플리케이션을 제어하여 로컬 파일을 읽는 LLM 기반 에이전트. 디렉터리 목록 표시 및 탐색과 같은 일반적인 파일 탐색 작업도 수행 가능
-    - **Coder**: 코드 작성, 다른 에이전트가 수집한 정보 분석, 새로운 산출물 생성에 특화된 LLM 기반 에이전트
-    - **ComputerTerminal**: 프로그램 실행 및 새로운 라이브러리 설치를 위한 콘솔 셸 접근을 제공하는 에이전트
+    
+    **Orchestrator**: 작업 분해, 계획 수립, 다른 에이전트의 하위 작업 실행 지시, 전체 진행 상황 추적 및 필요한 경우 수정 조치 수행
+    
+    **WebSurfer**: Chromium 기반 웹 브라우저를 제어하는 LLM 기반 에이전트로 URL 방문, 검색 수행 같은 탐색 작업, 클릭 및 입력과 같은 웹페이지 상호작용, 요약 및 질문 응답과 같은 읽기 작업을 수행하며, 웹페이지의 새로운 상태를 보고. WebSurfer는 브라우저의 접근성 트리와 “set-of-marks” 프롬프팅을 활용하여 작업을 수행
+    
+    **FileSurfer**: 마크다운 기반 파일 미리보기 애플리케이션을 제어하여 로컬 파일을 읽는 에이전트로 디렉터리 목록 표시 및 탐색과 같은 일반적인 파일 탐색 작업도 수행 가능
+    
+    **Coder**: 코드 작성, 다른 에이전트가 수집한 정보 분석, 새로운 산출물 생성에 특화된 에이전트
+    
+    **ComputerTerminal**: 프로그램 실행 및 새로운 라이브러리 설치를 위한 콘솔 셸 접근을 제공
 
 ### **STEP 2: 환경 설정 (5 minutes)**
 
@@ -1420,14 +1425,15 @@
     ```
     
 - Docker 설치 (코드 실행환경)
-    - [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-- ENVIRON_KEY 설정
-    - autogen/python/packages/autogen-magentic-one/src/autogen_magentic_one/**utils.py** 파일의 아래 코드를 변경
     
+    [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+- ENVIRON_KEY 설정
     ```python
     ENVIRON_KEY_CHAT_COMPLETION_PROVIDER = "azure"
     ENVIRON_KEY_CHAT_COMPLETION_KWARGS_JSON = '{"api_version": "2024-06-01", "azure_endpoint": "<YOUR_ENDPOINT>", "model_capabilities": { "function_calling": true, "json_output": true, "vision": true}, "azure_ad_token_provider": "DEFAULT", "model": "gpt-4o-2024-08-06", "api_key": "<YOUR_API_KEY>", "azure_deployment":"gpt-4o"}'
     ```
+    autogen/python/packages/autogen-magentic-one/src/autogen_magentic_one/**utils.py** 파일의 아래 코드를 변경
+    
     
 
 ### **STEP 3: 프로그램 실행 (15 minutes)**
@@ -3137,11 +3143,9 @@
         No agent selected.
         ```
         </details>
-        <br>
 
     - **참고 (screenshot)**
     ![image.png](images/log_files/screenshot_1738629702.png)
-    <br>
     
     - **참고 (Set-of-Mark)**
     ![image.png](images/log_files/screenshot_som_1738629765.png)
