@@ -3142,6 +3142,7 @@
     - **참고 (screenshot)**
     ![image.png](images/log_files/screenshot_1738629702.png)
     <br>
+    
     - **참고 (Set-of-Mark)**
     ![image.png](images/log_files/screenshot_som_1738629765.png)
   
