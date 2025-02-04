@@ -19,14 +19,19 @@
 
 [Hands-on Lab Part 1: Build a Multi-Agent Application](#hands-on-lab-part-1-build-a-multi-agent-application-2-hours)
 
+- **STEP 1**: 시나리오 이해 및 설계 
+- **STEP 2**: 배포 
+
 [Hands-on Lab Part 2: Build a Multi-Agent Using AutoGen](#hands-on-lab-part-2-build-a-multi-agent-using-autogen)
 
 [Hands-on Lab Part 3: Build an Advanced Multi-Agent Using Magentic-One](#hands-on-lab-part-3-build-an-advanced-multi-agent-using-magentic-one)
 
-- **Lab 1**
-- **Lab 2**
-- **Lab 3**
-- **Lab 4**
+- **Lab 1**: Coder와 ComputerTerminal을 이용한 Python 프로그램 실행 
+- **Lab 2**: WebSurfer를 이용한 정보 검색
+- **Lab 3**: Coder와 ComputerTerminal을 이용한 게임 프로그램 개발
+- **Lab 4**: WebSurfer를 활용한 최신 정보 기반의 아이디어 구상
+
+[Clean Up](#clean-up)
 
 # **Multi-Agent Hands-on**
 
@@ -97,7 +102,7 @@
     ![image.png](images/image%205.png)
     
 
-### **STEP 2: Deploy (30 minutes)**
+### **STEP 2: 배포 (30 minutes)**
 
 - **환경 설정 (VS Code Dev Containers 사용)**
     - Git Clone 실행
@@ -195,8 +200,11 @@
         
         SUCCESS: Your up workflow to provision and deploy to Azure completed in 14 minutes 12 seconds.
         ```
-        
-    - 초기 화면 (Endpoint Link 접속)
+
+### **STEP 3: Creative Writer 실행 (15 minutes)**
+
+- **Creative Writer 실행 및 결과 확인**
+    - 초기 화면 (배포 과정의 마지막에 표시되는 Endpoint Link로 접속)
         
         ![image.png](images/image%206.png)
         
@@ -212,12 +220,13 @@
         - Research: 최신 캠핑 패션에 대한 정보와 사람들이 겨울에 무엇을 입는지 알려주세요.
         - Products: 재킷과 하이킹을 맥락으로 사용해주세요.
         - Assignment: 연구와 제품 정보를 포함하는 재미있고 매력적인 기사를 쓰세요. 기사는 800~1000단어여야 합니다. 기사를 끝에서 언급하지 않고 연구를 언급할 때 출처를 인용하세요. 반드시 한글로 작성해주세요.
-    - 결과
+    - 결과 확인
         
         ![image.png](images/image%207.png)
         
-    - Output
-        
+        <details>
+        <summary>Response 상세보기</summary>
+
         ```bash
         Starting researcher agent task...
         
@@ -393,6 +402,7 @@
         Completed writer task
         complete: true
         ```
+        </details>
         
 
 ## **Hands-on Lab Part 2: Build a Multi-Agent Using AutoGen**
@@ -401,11 +411,12 @@
 
 - **Multi-Agent 시스템 특징**
     - **자동화된 작업 분할**
-        - 전체 목표에 일관성을 유지하면서 복잡한 작업을 더 작고 논리적으로 일관된 하위 작업으로 분할
+        - 전체 목표에 일관성을 유지하면서 복잡한 작업을 더 작고 논리적으로 일관된 하위 작업으로 분할
     - **멀티에이전트 간의 협업 시뮬레이션**
-        - 에이전트들이 공동 목표를 달성하기 위해 협력 (예. 하나의 Agent가 데이터 수집을 수행, 다른 Agent는 분석 작업을 실행)
+        - 에이전트들이 공동 목표를 달성하기 위해 협력 (예. 하나의 Agent가 데이터 수집을 수행, 다른 Agent는 분석 작업을 실행)
     - **LLM Orchestration**
         - 에이전트 역할과 도구, 작업 흐름을 관리하고 통합하여 복잡한 작업을 효율적으로 해결하는 방법
+
 - **AutoGen Multi-Agent 특징**
     - Agent는 각자의 역할에 맞게 조정된 **고유한 페르소나**를 소유하고 서로 **효과적으로 소통하고 협력**
     - 작업을 수행하기 위한 **도구 (Tool) 세트**를 활용 (예. 검색, 계산, 데이터베이스 검색, 내부시스템 API 등)
@@ -455,7 +466,9 @@
         - summary_method
             - last_msg: 채팅에서 요약을 얻기 위해 채팅 기록에서 마지막 메시지를 사용
             - reflection_with_llm: 채팅 기록을 반영하여 LLM 호출을 사용해 요약을 제공
-        - **ChatResult**
+
+            <details>
+            <summary>Response 상세보기</summary>
             
             ```bash
             Student_Agent (to Teacher_Agent):
@@ -517,7 +530,8 @@
             
             --------------------------------------------------------------------------------
             ```
-            
+            </details>
+            <br>
         - **ChatResult**.summary
             
             ```
@@ -561,7 +575,8 @@
             
             ![image.png](images/image%2016.png)
             
-        - **ChatResult.summary**
+            <details>
+            <summary>Response 상세보기</summary>
             
             ```
             First Chat Summary:  Artificial General Intelligence (AGI) represents a level of machine intelligence that simulates human-like cognitive abilities. Unlike narrow AI systems, which excel at specific tasks, AGI is envisioned to perform any intellectual task a human can do, and possibly even more. Here’s an exploration of the potential capabilities and advancements of AGI:
@@ -725,6 +740,8 @@
             
             The advent of AGI offers substantial economic opportunities alongside significant challenges. Implementing robust policies focused on education, regulation, economic support, and international cooperation can help navigate the complexities of an AGI-driven future. By fostering a balanced and inclusive approach, these policies can ensure that AGI contributes positively to economic prosperity, social welfare, and global equity.
             ```
+            </details>
+            <br>
             
     - **실습 3: 도구 (Tool) 사용**
         - 이 섹션에서는 에이전트 시스템의 Tool로 가장 많이 사용하는 웹 검색과 RAG 활용을 **AutoGen**을 사용하여 수행하는 방법을 보여줍니다.
@@ -743,8 +760,9 @@
                 user_proxy.initiate_chat(web_surfer, message=task1, max_turns=1)
                 ```
                 
-            - **ChatResult**
-                
+                <details>
+                <summary>Response 상세보기</summary>
+
                 ```bash
                 user_proxy (to web_surfer):
                 
@@ -812,6 +830,8 @@
                 
                 --------------------------------------------------------------------------------
                 ```
+                </details>
+                <br>
                 
             - Task 2: "Click on the first link.”
                 
@@ -841,8 +861,9 @@
                 )
                 ```
                 
-            - **ChatResult**
-                
+                <details>
+                <summary>Response 상세보기</summary>
+
                 ```bash
                 UserProxy (to WebScraper):
                 
@@ -1002,7 +1023,9 @@
                 --------------------------------------------------------------------------------
                 
                 ```
-                
+                </details>
+                <br>
+
             - 스크랩한 위키파일에 대해 RetrieveUserProxyAgent 사용한 RAG 수행
                 
                 ```python
@@ -1055,7 +1078,7 @@
         - **실습 5: Group Chat**
             - 지금까지 두 에이전트 간의 상호작용이나 두 에이전트의 일련의 상호작용을 포함하는 대화 패턴을 살펴보았습니다. **AutoGen**은 이를 확장하여 **그룹 채팅**이라는 더 넓은 대화 모델을 도입합니다. 그룹 채팅의 기본 개념은 모든 에이전트가 하나의 통합된 대화 스레드에 참여하며 동일한 컨텍스트를 공유하여 여러 에이전트 간의 협력이 필요한 작업에 유용합니다.
             
-            ![image.png](images/image%2017.png)
+                ![image.png](images/image%2017.png)
             
             - 그룹 채팅 관리자(Group Chat Manager)는 다음 단계를 통해 그룹 채팅을 오케스트레이션
                 1. **에이전트 선택**: 그룹 채팅 관리자가 그룹 내에서 발언할 에이전트를 선택
@@ -1073,7 +1096,7 @@
                 ![image.png](images/image%2018.png)
                 
             - **도구로 Agent 강화**
-                - 제공되는 도구를 통합하여 에이전트의 기능을 확장하고 복잡한 작업을 더 효율적이고 정교하게 작업을 처리
+                - 제공되는 도구를 통합하여 에이전트의 기능을 확장하고 복잡한 작업을 더 효율적이고 정교하게 작업을 처리
                 
                 ![image.png](images/image%2019.png)
                 
@@ -1081,8 +1104,9 @@
                 
                 ![image.png](images/image%2020.png)
                 
-            - Response
-                
+                <details>
+                <summary>Response 상세보기</summary>
+
                 ```
                 User_proxy (to chat_manager):
                 
@@ -1353,39 +1377,52 @@
                 
                 Next speaker: User_proxy
                 ```
+                </details>
                 
 
 ## **Hands-on Lab Part 3: Build an Advanced Multi-Agent Using Magentic-One**
 
-### **STEP 1: Magentic-One 이해 (30 minutes)**
+### **STEP 1: Magentic-One 이해**
 
-### **STEP 2: 환경 설정 (15 minutes)**
+- **Magentic-One은 다음과 같은 에이전트로 구성됩니다.**
+    - **Orchestrator**: 작업 분해, 계획 수립, 다른 에이전트의 하위 작업 실행 지시, 전체 진행 상황 추적 및 필요한 경우 수정 조치를 수행하는 주요 에이전트
+    - **WebSurfer**: Chromium 기반 웹 브라우저의 상태를 제어하고 관리하는 LLM 기반 에이전트로 URL 방문, 검색 수행 같은 탐색 작업, 클릭 및 입력과 같은 웹페이지 상호작용, 요약 및 질문 응답과 같은 읽기 작업을 수행하며, 웹페이지의 새로운 상태를 보고. WebSurfer는 브라우저의 접근성 트리와 “set-of-marks” 프롬프팅을 활용하여 작업을 수행
+    - **FileSurfer**: 마크다운 기반 파일 미리보기 애플리케이션을 제어하여 로컬 파일을 읽는 LLM 기반 에이전트. 디렉터리 목록 표시 및 탐색과 같은 일반적인 파일 탐색 작업도 수행 가능
+    - **Coder**: 코드 작성, 다른 에이전트가 수집한 정보 분석, 새로운 산출물 생성에 특화된 LLM 기반 에이전트
+    - **ComputerTerminal**: 프로그램 실행 및 새로운 라이브러리 설치를 위한 콘솔 셸 접근을 제공하는 에이전트
 
-- **Setup**
+### **STEP 2: 환경 설정 (5 minutes)**
+
+- **Git Clone**
     
     ```bash
     git clone https://github.com/microsoft/autogen.git
-    cd autogen/python
-    # uv sync  --all-extras
+    cd autogen/python/packages/autogen-magentic-one
+    ```
+- **가상환경 설정**
+    
+    ```bash
     python3 -m venv .autogen
     
     source .autogen/bin/activate
-    # For Windows, run .venv\Scripts\activate to activate the environment.
+    # For Windows, run .autogen\Scripts\activate to activate the environment.
+    ```
+- **Magentic-One 패키지 설치**
     
-    cd python/packages/autogen-magentic-one
+    ```bash
     pip install -e .
     ```
     
-- 크로스 브라우저 테스트 자동화를 위한 도구 Playwright 설치
+- Playwright (크로스 브라우저 테스트 자동화를 위한 도구) 설치
     
     ```bash
     playwright install --with-deps chromium
     ```
     
-- Docker 설치
+- Docker 설치 (코드 실행환경)
     - [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
 - ENVIRON_KEY 설정
-    - autogen/python/packages/autogen-magentic-one/src/autogen_magentic_one/**utils.py**
+    - autogen/python/packages/autogen-magentic-one/src/autogen_magentic_one/**utils.py** 파일의 아래 코드를 변경
     
     ```python
     ENVIRON_KEY_CHAT_COMPLETION_PROVIDER = "azure"
@@ -1395,7 +1432,7 @@
 
 ### **STEP 3: 프로그램 실행 (15 minutes)**
 
-- Lab 1
+- **Lab 1: Coder와 ComputerTerminal을 이용한 Python 프로그램 실행**
     - **Commands**
         
         ```bash
@@ -1413,7 +1450,341 @@
         ```
         Create a python program to add 2 numbers and then run it
         ```
+
+        <details>
+        <summary>Response 상세보기</summary>
+
+        ```
+        User input ('exit' to quit):  2개의 숫자를 더하는 Python 프로그램을 만들고 실행해줘
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:12.439863], UserProxy:
+
+        2개의 숫자를 더하는 Python 프로그램을 만들고 실행해줘
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:19.477112], Orchestrator (thought):
+
+        Initial plan:
+
+        We are working to address the following user request:
+
+        2개의 숫자를 더하는 Python 프로그램을 만들고 실행해줘
+
+
+        To answer this request we have assembled the following team:
+
+        WebSurfer: A helpful assistant with access to a web browser. Ask them to perform web searches, open pages, and interact with content (e.g., clicking links, scrolling the viewport, etc., filling in form fields, etc.) It can also summarize the entire page, or answer questions based on the content of the page. It can also be asked to sleep and wait for pages to load, in cases where the pages seem to be taking a while to load.
+        Coder: A helpful and general-purpose AI assistant that has strong language skills, Python skills, and Linux command line skills.
+        Executor: A agent for executing code
+        file_surfer: An agent that can handle local files.
+
+
+
+        Here is an initial fact sheet to consider:
+
+        1. GIVEN OR VERIFIED FACTS
+        - The request is to create and run a Python program that adds two numbers.
+
+        2. FACTS TO LOOK UP
+        - None in particular, as the request involves basic Python programming which does not typically require external look-up.
+
+        3. FACTS TO DERIVE
+        - How to efficiently write a simple Python program that performs addition of two numbers and execute it.
+
+        4. EDUCATED GUESSES
+        - The user might want a small script that takes user input for the two numbers and then prints their sum.
+
+
+        Here is the plan to follow as best as possible:
+
+        - Use Coder to write a simple Python script that takes two numbers as input from the user and outputs their sum.
+        - Pass the script to Executor for execution to demonstrate the functionality.
+        - Return the output to the user.
+
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:22.588535], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "The request to create and execute a Python program for adding two numbers has not yet been fully addressed.",
+            "answer": false
+        },
+        "is_in_loop": {
+            "reason": "We have not entered a loop as the initial request is being processed systematically, step by step.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "We are in the initial stages of satisfying the request and laying out a plan to execute it.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "The next step in the plan involves creating a Python script, which falls under the expertise of Coder.",
+            "answer": "Coder"
+        },
+        "instruction_or_question": {
+            "reason": "Coder needs to write a simple Python program to accept two numbers as input and output their sum, as part of fulfilling the user's request.",
+            "answer": "Please write a simple Python script that takes two numbers as input from the user, adds them, and prints the result."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:22.588718], Orchestrator (-> Coder):
+
+        Please write a simple Python script that takes two numbers as input from the user, adds them, and prints the result.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:22.588906], Orchestrator (thought):
+
+        Next speaker Coder
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:24.208067], Coder:
+
+        ```python
+        # filename: add_two_numbers.py
+
+        # Take two numbers as input from the user
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+
+        # Calculate the sum
+        sum_of_numbers = num1 + num2
+
+        # Print the result
+        print("The sum of {} and {} is {}".format(num1, num2, sum_of_numbers))
         
+
+        Please save this code in a file named `add_two_numbers.py` and then execute it. This program will prompt you to enter two numbers, then it will calculate and print their sum.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:26.760281], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "The code for the Python program has been correctly written. However, the program still needs to be executed to fully satisfy the user's request.",
+            "answer": false
+        },
+        "is_in_loop": {
+            "reason": "We are not in a loop. Each step taken has been necessary to progress towards fulfilling the user's request.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "The necessary Python script has been created, and now we need to execute it to complete the task.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "The code needs to be executed to fulfill the user's request completely.",
+            "answer": "Executor"
+        },
+        "instruction_or_question": {
+            "reason": "Executor should now execute the provided Python script to add two numbers and output the result.",
+            "answer": "Please execute the provided Python script to add two numbers and demonstrate its functionality."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:26.760635], Orchestrator (-> Executor):
+
+        Please execute the provided Python script to add two numbers and demonstrate its functionality.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:26.761379], Orchestrator (thought):
+
+        Next speaker Executor
+        Executor is about to execute code (lang: python):
+        # filename: add_two_numbers.py
+
+        # Take two numbers as input from the user
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+
+        # Calculate the sum
+        sum_of_numbers = num1 + num2
+
+        # Print the result
+        print("The sum of {} and {} is {}".format(num1, num2, sum_of_numbers))
+
+        Do you want to proceed? (yes/no): yes
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:44.349843], Executor:
+
+        The script ran, then exited with Unix exit code: 1
+        Its output was:
+        Enter the first number: Traceback (most recent call last):
+        File "/workspace/add_two_numbers.py", line 4, in <module>
+            num1 = float(input("Enter the first number: "))
+                        ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        EOFError: EOF when reading a line
+
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:48.956347], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "The script execution failed because inputs could not be provided interactively in the current environment, hence the user's request to add two numbers is not fulfilled yet.",
+            "answer": false
+        },
+        "is_in_loop": {
+            "reason": "While there was a failure in script execution, it's not indicative of a loop. This is the first time Executor attempted to run the script.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "Encountering an input error is a common obstacle in non-interactive environments, but identifying it helps us adapt the solution.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "The error needs to be addressed by modifying the script to work in a non-interactive environment.",
+            "answer": "Coder"
+        },
+        "instruction_or_question": {
+            "reason": "Coder needs to modify the script so it can run successfully without input in a non-interactive environment.",
+            "answer": "Please modify the Python script to use predefined numbers for the summation instead of taking interactive user input, so it can run in the current non-interactive environment."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:48.956610], Orchestrator (-> Coder):
+
+        Please modify the Python script to use predefined numbers for the summation instead of taking interactive user input, so it can run in the current non-interactive environment.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:48.956843], Orchestrator (thought):
+
+        Next speaker Coder
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:50.853825], Coder:
+
+        Sure, I'll modify the script to use predefined numbers. Here's the updated version:
+
+        ```python
+        # filename: add_two_numbers.py
+
+        # Predefined numbers
+        num1 = 5.0
+        num2 = 7.0
+
+        # Calculate the sum
+        sum_of_numbers = num1 + num2
+
+        # Print the result
+        print("The sum of {} and {} is {}".format(num1, num2, sum_of_numbers))
+
+        Please save this code in a file named `add_two_numbers.py` and execute it. This will add the two predefined numbers, 5.0 and 7.0, and print the result.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:56.178396], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "The script has been modified to use predefined numbers and is ready for execution. The initial request is almost fulfilled once the script is run successfully.",
+            "answer": false
+        },
+        "is_in_loop": {
+            "reason": "We encountered an issue with interactive input, and it has been resolved by using predefined numbers. The team is making logical and sequential progress.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "The modified script is ready for execution, showing forward progress towards fulfilling the user's request.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "Execution of the modified script with predefined numbers is the next step.",
+            "answer": "Executor"
+        },
+        "instruction_or_question": {
+            "reason": "To demonstrate the functionality and satisfy the user's request, the modified script needs to be executed.",
+            "answer": "Please execute the modified Python script that adds two predefined numbers."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:56.178519], Orchestrator (-> Executor):
+
+        Please execute the modified Python script that adds two predefined numbers.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:56.178607], Orchestrator (thought):
+
+        Next speaker Executor
+        Executor is about to execute code (lang: python):
+        # filename: add_two_numbers.py
+
+        # Predefined numbers
+        num1 = 5.0
+        num2 = 7.0
+
+        # Calculate the sum
+        sum_of_numbers = num1 + num2
+
+        # Print the result
+        print("The sum of {} and {} is {}".format(num1, num2, sum_of_numbers))
+
+        Do you want to proceed? (yes/no): yes
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:17:59.915231], Executor:
+
+        The script ran, then exited with Unix exit code: 0
+        Its output was:
+        The sum of 5.0 and 7.0 is 12.0
+
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:18:01.874336], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "The Python program to add two numbers has been created and successfully executed.",
+            "answer": true
+        },
+        "is_in_loop": {
+            "reason": "We are not repeating previous requests; distinct actions have been taken each step.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "The task was completed successfully with each step adding value toward the completion of the request.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "The task is completed; no further action is required.",
+            "answer": "Executor"
+        },
+        "instruction_or_question": {
+            "reason": "To inform that the task has been completed successfully.",
+            "answer": "The Python program has been executed successfully and the output is as expected."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:18:01.874417], Orchestrator (thought):
+
+        Request satisfied.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:18:03.039113], Orchestrator (final answer):
+
+
+        I have created and executed a Python program that adds two predefined numbers. The program adds 5.0 and 7.0, and the result is 12.0. If you wish to run it interactively at your end, you can replace the predefined numbers with user input as shown in the original script I provided. Let me know if you need any more help!
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:18:03.039437], Orchestrator (termination condition):
+
+        No agent selected.
+        ```
+        </details>
+        <br>
+
+
     - Try It! (숫자 입력을 위해 num.txt 파일에 2개의 숫자를 저장 후 실행)
         
         ```
@@ -1428,7 +1799,7 @@
         Verify if the file tables.csv exists on local path ./
         ```
         
-- Lab 2
+- **Lab 2: WebSurfer를 이용한 최신 정보 검색**
     - Commands
         
         ```bash
@@ -1440,8 +1811,414 @@
         ```
         SK AI Summit 2024 키노트를 정리해줘
         ```
+
+        <details>
+        <summary>Response 상세보기</summary>
+
+        ```
+        (.autogen) ➜  autogen-magentic-one git:(main) ✗ python examples/example.py --logs_dir ./logs --hil_mode --save_screenshots
+
+        [2025-02-03T13:10:43.182533], WebSurfer: Screenshot: screenshot_1738555842.png
+        User input ('exit' to quit):  SK AI Summit 2024 키노트를 정리해줘
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:10:45.782220], UserProxy:
+
+        SK AI Summit 2024 키노트를 정리해줘
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:00.142823], Orchestrator (thought):
+
+        Initial plan:
+
+        We are working to address the following user request:
+
+        SK AI Summit 2024 키노트를 정리해줘
+
+
+        To answer this request we have assembled the following team:
+
+        WebSurfer: A helpful assistant with access to a web browser. Ask them to perform web searches, open pages, and interact with content (e.g., clicking links, scrolling the viewport, etc., filling in form fields, etc.) It can also summarize the entire page, or answer questions based on the content of the page. It can also be asked to sleep and wait for pages to load, in cases where the pages seem to be taking a while to load.
+        Coder: A helpful and general-purpose AI assistant that has strong language skills, Python skills, and Linux command line skills.
+        Executor: A agent for executing code
+        file_surfer: An agent that can handle local files.
+        UserProxy: The current user interacting with you.
+
+
+
+        Here is an initial fact sheet to consider:
+
+        1. GIVEN OR VERIFIED FACTS
+        - The request is about the SK AI Summit 2024 keynote.
+
+        2. FACTS TO LOOK UP
+        - Details of the SK AI Summit 2024, including dates, location, and keynote speakers.
+        - Major announcements or highlights from the 2024 keynote.
+        - Topics covered during the keynote at the SK AI Summit 2024.
+        - Specific technological advancements or initiatives presented.
+
+        3. FACTS TO DERIVE
+        - Possible themes or focus areas of the keynote based on current trends in AI and previous SK AI Summits.
+        - Implications of the keynote announcements on the AI industry or specific sectors.
+
+        4. EDUCATED GUESSES
+        - The SK AI Summit 2024 keynote likely covers recent advancements and future directions in AI developed by SK or in collaboration with other entities.
+        - Potential emphasis on ethical AI, sustainability, and integration with emerging technologies like 5G or IoT.
+
+
+        Here is the plan to follow as best as possible:
+
+        - **WebSurfer**: Perform a web search to find information about the SK AI Summit 2024, focusing on the keynote address. Gather details such as the date, location, keynote speakers, major announcements, and themes covered in the keynote.
+
+        - **WebSurfer**: Look for authoritative sources such as official press releases from SK Group, news articles, or official event websites to verify the obtained information.
+
+        - **UserProxy**: Compile the information gathered by WebSurfer to create a detailed summary of the SK AI Summit 2024 keynote, highlighting key points and significant announcements.
+
+        - **Coder/Executor**: This team member is not needed for this task as there is no requirement for code execution or data analysis based on the current outline.
+
+        - **file_surfer**: This team member is not needed unless there are files or documents related to the SK AI Summit 2024 keynote that need to be handled or analyzed.
+
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:04.877318], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "The request has not been satisfied since the details of the SK AI Summit 2024 keynote have not yet been provided.",
+            "answer": false
+        },
+        "is_in_loop": {
+            "reason": "We are not in a loop. This is the initial step to gather information about the SK AI Summit 2024 keynote.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "We are starting the process to gather the necessary information about the SK AI Summit 2024 keynote.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "WebSurfer needs to conduct a web search to find relevant information about the SK AI Summit 2024 keynote.",
+            "answer": "WebSurfer"
+        },
+        "instruction_or_question": {
+            "reason": "WebSurfer needs to gather detailed information about the SK AI Summit 2024 keynote.",
+            "answer": "Perform a web search to find information about the SK AI Summit 2024, focusing on the keynote address. Gather details such as the date, location, keynote speakers, major announcements, and themes covered in the keynote."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:04.877694], Orchestrator (-> WebSurfer):
+
+        Perform a web search to find information about the SK AI Summit 2024, focusing on the keynote address. Gather details such as the date, location, keynote speakers, major announcements, and themes covered in the keynote.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:04.878191], Orchestrator (thought):
+
+        Next speaker WebSurfer
+        [2025-02-03T13:11:06.205886], WebSurfer: Screenshot: screenshot_som_1738555865.png
+        [2025-02-03T13:11:11.062104], WebSurfer: web_search( {"reasoning": "To find detailed information about the SK AI Summit 2024 keynote, including date, location, speakers, and major highlights, I'll perform a web search.", "query": "SK AI Summit 2024 keynote summary"} )
+        [2025-02-03T13:11:16.294195], WebSurfer: Screenshot: screenshot_1738555876.png
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:26.068658], WebSurfer:
+
+        I typed 'SK AI Summit 2024 keynote summary' into the browser search bar.
+
+        Here is a screenshot of [SK AI Summit 2024 keynote summary - Search](https://www.bing.com/search?q=SK+AI+Summit+2024+keynote+summary&FORM=QBLH). The viewport shows 36% of the webpage, and is positioned at the top of the page.
+        The following metadata was extracted from the webpage:
+
+        {
+            "meta_tags": {
+                "referrer": "origin-when-cross-origin",
+                "SystemEntropyOriginTrialToken": "A5is4nwJJVnhaJpUr1URgj4vvAXSiHoK0VBbM9fawMskbDUj9WUREpa3JzGAo6xd1Cp2voQEG1h6NQ71AsMznU8AAABxeyJvcmlnaW4iOiJodHRwczovL3d3dy5iaW5nLmNvbTo0NDMiLCJmZWF0dXJlIjoiTXNVc2VyQWdlbnRMYXVuY2hOYXZUeXBlIiwiZXhwaXJ5IjoxNzUzNzQ3MjAwLCJpc1N1YmRvbWFpbiI6dHJ1ZX0=",
+                "og:description": "Intelligent search from Bing makes it easier to quickly find what you\u2019re looking for and rewards you.",
+                "og:site_name": "Bing",
+                "og:title": "SK AI Summit 2024 keynote summary - Bing",
+                "og:url": "https://www.bing.com/search?q=SK+AI+Summit+2024+keynote+summary&FORM=QBLH",
+                "fb:app_id": "3732605936979161",
+                "og:image": "http://www.bing.com/sa/simg/facebook_sharing_5.png",
+                "og:type": "website",
+                "og:image:width": "600",
+                "og:image:height": "315"
+            }
+        }
+
+        Automatic OCR of the page screenshot has detected the following text:
+
+        By using this site you agree to the use of cookies for analytics, personalized content, and ads. Learn more about third party cookies | Microsoft Privacy Policy
+
+        Microsoft Bing
+
+        Search bar: SK AI Summit 2024 keynote summary
+
+        Icons:
+        - Microphone (voice search)
+        - Search (magnifying glass)
+        - Search tools (filter icon)
+
+        Tab options:
+        - SEARCH
+        - COPILOT
+        - IMAGES
+        - VIDEOS
+        - MAPS
+        - NEWS
+        - SHOPPING
+        - MORE
+        - TOOLS
+
+        Deep search (icon)
+
+        Sign in button
+
+        Search results:
+        About 1,490,000 results
+
+        1. Result:
+        Title: SK
+        Link: https://eng.sk.com › news
+        Description: SK Group Hosts ‘SK AI Summit 2024’ to Drive Global AI ...
+        Details: SEOUL, November 4, 2024 — SK Group Chairman Tae-won Chey expressed his ambition to strengthen the global Artificial Intelligence (AI) ecosystem by combining SK’s AI capabilities ...
+
+        2. Result:
+        Title: SK telecom
+        Link: https://www.sktelecom.com › en › press › press_detail.do
+        Description: SK telecom
+        Details: Nov 4, 2024 - CEO Ryu Young-sang delivered keynote speech at SK AI Summit, outlining company’s plan to build AI infrastructure based on three core areas: AI Data Center (AIDC), GPU ...
+
+        People also ask:
+        1. Question: Who gave a keynote speech at AI Summit 2024?
+        - Answer: During Chey’s keynote speech, Microsoft CEO Satya Nadella and TSMC CEO C.C. Wei delivered video messages for the AI Summit 2024, while Nvidia CEO Jensen Huang...
+        - Link: SK Chairman Chey highlights par...
+        - Source: en.yna.co.kr
+
+        2. Question: What is the SK AI Summit?
+        - Answer: An SK Group representative stated, “The SK AI Summit is expected to serve as a platform for exchange, bringing together top-tier experts from the private sector, government and academia, and all those interested in ...
+        - Link: SK Group Hosts ‘SK AI Summit 2...
+        - Source: eng.sk.com
+
+        More "People also ask" options and a horizontal scroll icon
+
+        Feedback button
+
+        Related searches:
+        - sk ai summit 2023
+        - sk ai summit
+        - sk ai 2024
+        - sk summit 2024
+        - sk ai conference speech
+        - sk ai conference
+
+        Bottom Grunt icon (bug icon)
+        <Image>
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:32.710324], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "The request is not yet satisfied because we have not provided a detailed summary of the SK AI Summit 2024 keynote.",
+            "answer": false
+        },
+        "is_in_loop": {
+            "reason": "We are not in a loop as we have just begun collecting relevant information.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "We have initiated the search for relevant information, which indicates forward progress.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "WebSurfer should look into the first search result to gather detailed information about the SK AI Summit 2024 keynote.",
+            "answer": "WebSurfer"
+        },
+        "instruction_or_question": {
+            "reason": "The first search result appears to contain information about the SK AI Summit 2024, which could provide the necessary details to address the request.",
+            "answer": "Please click on the first link ('SK Group Hosts SK AI Summit 2024') to gather more detailed information about the keynote address, including major announcements and themes covered."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:32.710593], Orchestrator (-> WebSurfer):
+
+        Please click on the first link ('SK Group Hosts SK AI Summit 2024') to gather more detailed information about the keynote address, including major announcements and themes covered.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:32.711044], Orchestrator (thought):
+
+        Next speaker WebSurfer
+        [2025-02-03T13:11:33.126043], WebSurfer: Screenshot: screenshot_som_1738555893.png
+        [2025-02-03T13:11:36.856583], WebSurfer: click( {"reasoning": "The first link likely contains detailed relevant information about the SK AI Summit 2024 keynote.", "target_id": 92} )
+        [2025-02-03T13:11:44.645528], WebSurfer: New tab or window.
+        [2025-02-03T13:11:47.905190], WebSurfer: Screenshot: screenshot_1738555907.png
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:11:55.732437], WebSurfer:
+
+        I clicked 'SK Group Hosts ‘SK AI Summit 2024’ to Drive Global AI ...'.
+
+        Here is a screenshot of [SK Group Hosts ‘SK AI Summit 2024’ to Drive Global AI Exchange and Innovation | SK](https://eng.sk.com/news/sk-group-hosts-sk-ai-summit-2024-to-drive-global-ai-exchange-and-innovation). The viewport shows 16% of the webpage, and is positioned at the top of the page.
+        The following metadata was extracted from the webpage:
+
+        {
+            "meta_tags": {
+                "viewport": "width=device-width, initial-scale=1",
+                "format-detection": "telephone=no",
+                "description": "",
+                "fb:app_id": "",
+                "og:url": "https://eng.sk.com/news/sk-group-hosts-sk-ai-summit-2024-to-drive-global-ai-exchange-and-innovation",
+                "og:type": "website",
+                "og:title": "SK Group Hosts \u2018SK AI Summit 2024\u2019 to Drive Global AI Exchange and Innovation | SK",
+                "og:image": "https://eng.sk.com/uploads/images/_1200x630_crop_center-center_none/Photo-1-SK-Group-Chairman-Tae-won-Chey-at-the-SK-AI-Summit-in-Seoul-on-Monday-November-4.jpg",
+                "og:image:width": "1200",
+                "og:image:height": "630",
+                "og:description": "",
+                "og:site_name": "SK",
+                "og:locale": "en_US",
+                "og:locale:alternate": "en_US",
+                "twitter:card": "summary_large_image",
+                "twitter:site": "",
+                "twitter:url": "https://eng.sk.com/news/sk-group-hosts-sk-ai-summit-2024-to-drive-global-ai-exchange-and-innovation",
+                "twitter:title": "SK Group Hosts \u2018SK AI Summit 2024\u2019 to Drive Global AI Exchange and Innovation | SK",
+                "twitter:description": "",
+                "twitter:image": "https://eng.sk.com/uploads/images/_1200x600_crop_center-center_none/Photo-1-SK-Group-Chairman-Tae-won-Chey-at-the-SK-AI-Summit-in-Seoul-on-Monday-November-4.jpg",
+                "msapplication-TileColor": "#da532c",
+                "theme-color": "#ffffff"
+            }
+        }
+
+        Automatic OCR of the page screenshot has detected the following text:
+
+        Companies     Industries     Social Value     Perspectives     News     About     Eng
+
+        News
+
+        SK Group Hosts ‘SK AI Summit 2024’ to Drive Global AI Exchange and Innovation
+        November 4, 2024
+
+        SK Chairman Tae-won Chey: “Contributing to the Development of a Global AI Ecosystem by Leveraging SK’s Capabilities and Partnerships, Both Domestic and Global”
+
+        - Event being held at COEX Convention Center in Seoul from November 4-5; gathering global AI leaders, including SK Chairman and the CEO of OpenAI
+        - Chey: “We will address the ‘AI bottleneck’ by integrating solutions from SK and our top global partners”
+        - CEOs of Microsoft, NVIDIA, and TSMC shared messages and participated in video discussions, highlighting their commitment to continuing collaboration with SK in AI and working together to shape the future of humanity
+        - Event included over 10 sessions featuring keynote presentations and expert discussions covering all aspects of AI, from infrastructure and energy to services
+
+        SEOUL, November 4, 2024 – SK Group Chairman Tae-won Chey expressed his ambition to strengthen the global Artificial Intelligence (AI) ecosystem by combining SK’s AI capabilities with partnerships across domestic and international companies. He also outlined plans to contribute to the development of Korea’s AI ecosystem and
+
+        Related Companies
+
+        SK hynix
+
+        SK telecom
+
+        Related Industries
+
+        Information & Communications Technology
+
+        Semiconductor & Materials
+
+        Related Locations
+
+        South Korea
+        <Image>
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:12:02.814791], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "We have gathered some information regarding the SK AI Summit 2024 keynote, including details about the event and its themes. However, a detailed summary has not yet been compiled.",
+            "answer": false
+        },
+        "is_in_loop": {
+            "reason": "We are not currently in a loop. We have progressed from searching to retrieving data from the webpage.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "The WebSurfer has successfully navigated to a page with relevant information and is gathering details about the event.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "WebSurfer should extract more detailed information from the webpage regarding announcements, themes, and other specifics from the SK AI Summit 2024 keynote.",
+            "answer": "WebSurfer"
+        },
+        "instruction_or_question": {
+            "reason": "WebSurfer needs to review the webpage contents and extract specific details about the keynote, including major announcements, key speakers, and covered themes to formulate a comprehensive summary.",
+            "answer": "Please extract detailed information from the page regarding the SK AI Summit 2024 keynote, focusing on specific announcements, key speakers, and themes covered in the discussions."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:12:02.815051], Orchestrator (-> WebSurfer):
+
+        Please extract detailed information from the page regarding the SK AI Summit 2024 keynote, focusing on specific announcements, key speakers, and themes covered in the discussions.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:12:02.815474], Orchestrator (thought):
+
+        Next speaker WebSurfer
+        [2025-02-03T13:12:03.100144], WebSurfer: Screenshot: screenshot_som_1738555923.png
+        [2025-02-03T13:12:07.418188], WebSurfer: summarize_page( {"reasoning": "I will summarize the page to extract detailed information about SK AI Summit 2024 keynote, including announcements, key speakers, and themes.", "url": "https://eng.sk.com/news/sk-group-hosts-sk-ai-summit-2024-to-drive-global-ai-exchange-and-innovation"} )
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:12:14.436786], WebSurfer:
+
+        The SK Group is hosting the 'SK AI Summit 2024' at the COEX Convention Center in Seoul, with the aim of advancing global Artificial Intelligence (AI) cooperation and innovation. The event, featuring SK Chairman Tae-won Chey, top executives from global tech companies, and AI leaders such as the CEO of OpenAI, focuses on collaboration to overcome existing challenges in the AI sector. The summit covers various topics related to AI, including infrastructure, energy, and services, and underlines the importance of cross-industry partnerships in shaping the future of AI. Chey emphasized addressing key AI bottlenecks such as semiconductor shortages, AI infrastructure energy needs, and data quality, aiming to bolster Korea's leadership in AI by leveraging SK's capabilities and partnerships.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:12:23.209843], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "The key details from the SK AI Summit 2024 keynote have been extracted, including the event's focus on global collaboration to address AI sector challenges, key speakers involved, and highlighted themes.",
+            "answer": true
+        },
+        "is_in_loop": {
+            "reason": "The actions are progressing with different requests being made and successfully fulfilled, leading to new information being provided.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "The information required to address the user's request has been successfully extracted and summarized.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "The detailed summary for SK AI Summit 2024 keynote has been provided.",
+            "answer": "UserProxy"
+        },
+        "instruction_or_question": {
+            "reason": "The task of summarizing the SK AI Summit 2024 keynote is complete and should be communicated to the user.",
+            "answer": "The SK AI Summit 2024, held at COEX Convention Center in Seoul, focused on enhancing global AI cooperation. SK Chairman Tae-won Chey and several top leaders from the tech industry, including the CEO of OpenAI, highlighted efforts to tackle AI challenges collaboratively. Key topics included AI infrastructure, energy, and services. Chey emphasized resolving AI bottlenecks like semiconductor shortages and energy demands to strengthen Korea's AI leadership through strategic partnerships."
+        }
+        }
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:12:23.210016], Orchestrator (thought):
+
+        Request satisfied.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:12:29.306621], Orchestrator (final answer):
+
+
+        SK AI Summit 2024는 서울의 코엑스 컨벤션 센터에서 개최되었으며, 글로벌 인공지능(AI) 협력과 혁신을 발전시키기 위한 목적으로 진행되었습니다. SK 회장 최태원과 글로벌 기술 기업의 최고 경영자들, OpenAI의 CEO를 포함한 AI 리더들이 참여하였으며, AI 분야의 기존 과제를 극복하기 위한 협력을 강조하였습니다.
+
+        키노트에서는 반도체 부족, AI 인프라 에너지 수요, 데이터 품질 등 AI의 주요 병목 현상 해결을 중점적으로 다루었습니다. 이를 통해 SK의 역량과 파트너십을 활용하여 한국의 AI 리더십을 강화하고자 하는 방안이 제시되었습니다.
+
+        행사 동안 AI 관련 인프라, 에너지, 서비스 등 다양한 주제가 다루어졌으며, 산업 간 협력의 중요성을 강조하였습니다. 최태원 회장은 SK와 글로벌 파트너들의 솔루션을 융합하여 이러한 문제들을 해결하고 AI의 미래를 함께 형성하려는 의지를 피력했습니다.
+
+        ---------------------------------------------------------------------------
+        [2025-02-03T13:12:29.306859], Orchestrator (termination condition):
+
+        No agent selected.
         
-- Lab 3
+        ```
+        </details>
+        <br>
+
+- **Lab 3: Coder와 ComputerTerminal을 이용한 게임 프로그램 개발**
     - Commands
         
         ```bash
@@ -1472,8 +2249,9 @@
         python snakegame.py
         ```
         
-    - Output
-        
+        <details>
+        <summary>Response 상세보기</summary>
+
         ```bash
         (.autogen) ➜  autogen-magentic-one git:(main) ✗ python examples/example_coder.py --logs_dir ./logs --hil_mode --save_screenshots --file_surfer
         User input ('exit' to quit):  특별한 기능이 포함된 새로운 스네이크 게임이 필요합니다. 스네이크 게임의 새로운 기능을 계획하고, snakegame.py 파일을 생성하여 게임 코드를 작성한 뒤 테스트를 실행하고 결과를 보고하세요.
@@ -1836,8 +2614,10 @@
         Next speaker UserProxy
         User input ('exit' to quit):
         ```
+        </details>
+        <br>
         
-- Lab 4
+- **Lab 4: WebSurfer를 활용하여 아이디어 구상**
     - Commands
         
         ```bash
@@ -1855,139 +2635,179 @@
         ```
         I need 3 different ideas for my blog. Find trending topic around AI Agents, Agentic AI. Use google trends or similar, search youtube to find popular topics. Return a list of 3 different ideas.
         ```
-        
+
+    - **Updated Ledger (Orchestrator Thought)**
+        ```
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:21.977780], Orchestrator (thought):
+
+        Updated Ledger:
+        {
+        "is_request_satisfied": {
+            "reason": "Three blog ideas about AI agent trends have been proposed.",
+            "answer": true
+        },
+        "is_in_loop": {
+            "reason": "We are not repeating any actions or requests.",
+            "answer": false
+        },
+        "is_progress_being_made": {
+            "reason": "We have provided the user with three complete blog ideas.",
+            "answer": true
+        },
+        "next_speaker": {
+            "reason": "The proposed blog ideas have been presented for the user's consideration.",
+            "answer": "UserProxy"
+        },
+        "instruction_or_question": {
+            "reason": "The user needs to review the blog ideas to decide their suitability.",
+            "answer": "Please review the proposed blog ideas and let us know if they meet your requirements or if any adjustments are needed."
+        }
+        }
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:21.977859], Orchestrator (thought):
+
+        Request satisfied.
+        ```
+
     - **Final Answer**
         
         ```
-        [2025-01-11T02:47:43.863645], Orchestrator (final answer):
-        
-        Here are three YouTube video ideas based on trending topics around AI Agents and Agentic AI:
-        
-        1. **"The Future of AI: Agentic AI and How It Will Revolutionize Automation"**
-           - Explore the concept of Agentic AI and its potential to transform automation across various industries. This video will explain Agentic AI, showcase real-world applications, and discuss its future impact.
-        
-        2. **"AI Agents: From Zero to Production in Under an Hour - A Step-by-Step Guide"**
-           - Follow a practical tutorial on taking AI Agents from development to deployment in under 60 minutes. This video will cover the necessary tools, platforms, and coding techniques for both beginners and experienced developers.
-        
-        3. **"Agentic AI 2025: Predictions and Trends to Watch"**
-           - Delve into predictions and trends for Agentic AI by 2025, featuring insights from industry experts. Discuss upcoming advancements and breakthroughs that could make AI agents an essential part of everyday life.
-        
-        These ideas are inspired by current trends and insights, ensuring they are relevant and engaging for your audience.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:47:43.864154], Orchestrator (termination condition):
-        
-        No agent selected.
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:29.312789], Orchestrator (final answer):
+
+
+        다음은 AI 에이전트에 관한 블로그 주제 아이디어 세 가지입니다:
+
+        1. **AI 에이전트의 미래: 2025 예측과 혁신**
+        - AI 에이전트의 미래를 예측하고 다가올 2025년까지 예상되는 발전, 도전 과제 및 혁신을 탐구하는 블로그입니다. 자동화, AI 컴패니언, 다양한 산업에서의 AI 역할 등을 다룰 수 있습니다.
+
+        2. **생성 AI 및 에이전트적 지능 탐구**
+        - 생성 AI가 자율적인 지능형 에이전트 개발에 미치는 영향을 중심으로 블로그를 작성해보세요. 이러한 AI 에이전트가 어떻게 콘텐츠, 통찰력 또는 솔루션을 생성하는지, 그리고 이에 대한 사용 사례나 윤리적인 고려사항을 다룰 수 있습니다.
+
+        3. **스타트업 스포트라이트: AI 에이전트 기업 선두주자**
+        - AI 에이전트 기술 발전을 이끄는 혁신적인 스타트업에 대한 글입니다. 주요 업체들의 시장 내 역할, AI 기술에 대한 기여 및 다양한 산업에 미치는 영향을 조명해 볼 수 있습니다.
+
+        이 아이디어들은 현재와 미래의 AI 에이전트 관련 주제를 다루며 독자들의 관심을 끌 수 있을 것입니다.
         ```
         
-    - Response
+        <details>
+        <summary>Response 상세보기</summary>
         
         ```bash
         (.autogen) ➜  autogen-magentic-one git:(main) ✗ python examples/example.py --logs_dir ./logs --hil_mode --save_screenshots
-        [2025-01-11T02:41:22.564683], WebSurfer: Screenshot: screenshot_1736530882.png
-        User input ('exit' to quit):  I need 3 different ideas for my next youtube vide. Find trending topic around AI Agents, Agentic AI. Use google trends or similar, search youtube to find popular topics. Return a list of 3 different ideas.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:41:28.650866], UserProxy:
-        
-        I need 3 different ideas for my next youtube vide. Find trending topic around AI Agents, Agentic AI. Use google trends or similar, search youtube to find popular topics. Return a list of 3 different ideas.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:41:33.509208], Orchestrator (thought):
-        
+        [2025-02-04T09:41:44.915832], WebSurfer: Screenshot: screenshot_1738629702.png
+        User input ('exit' to quit):  블로그 작성을 위한 3가지 다른 아이디어가 필요합니다. AI 에이전트에 대한 Trending 주제를 찾아주세요. Google Trends를 사용하고, Youtube에서 인기 있는 주제를 검색하여 3가지 아이디어를 한글로 반환해주세요.
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:09.570125], UserProxy:
+
+        블로그 작성을 위한 3가지 다른 아이디어가 필요합니다. AI 에이전트에 대한 Trending 주제를 찾아주세요. Google Trends를 사용하고, Youtube에서 인기 있는 주제를 검색하여 3가지 아이디어를 한글로 반환해주세요.
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:17.873526], Orchestrator (thought):
+
         Initial plan:
-        
+
         We are working to address the following user request:
-        
-        I need 3 different ideas for my next youtube vide. Find trending topic around AI Agents, Agentic AI. Use google trends or similar, search youtube to find popular topics. Return a list of 3 different ideas.
-        
+
+        블로그 작성을 위한 3가지 다른 아이디어가 필요합니다. AI 에이전트에 대한 Trending 주제를 찾아주세요. Google Trends를 사용하고, Youtube에서 인기 있는 주제를 검색하여 3가지 아이디어를 한글로 반환해주세요.
+
+
         To answer this request we have assembled the following team:
-        
+
         WebSurfer: A helpful assistant with access to a web browser. Ask them to perform web searches, open pages, and interact with content (e.g., clicking links, scrolling the viewport, etc., filling in form fields, etc.) It can also summarize the entire page, or answer questions based on the content of the page. It can also be asked to sleep and wait for pages to load, in cases where the pages seem to be taking a while to load.
         Coder: A helpful and general-purpose AI assistant that has strong language skills, Python skills, and Linux command line skills.
         Executor: A agent for executing code
         file_surfer: An agent that can handle local files.
         UserProxy: The current user interacting with you.
-        
+
+
+
         Here is an initial fact sheet to consider:
-        
+
         1. GIVEN OR VERIFIED FACTS
-           - The request is for three different YouTube video ideas.
-           - The focus should be on trending topics around AI Agents and Agentic AI.
-        
+        - The request is for three different blog ideas related to trending topics about AI agents.
+        - Sources mentioned for research include Google Trends and YouTube.
+
         2. FACTS TO LOOK UP
-           - Current trending topics related to AI Agents and Agentic AI on platforms like Google Trends or YouTube.
-        
+        - Current trending topics about AI agents on Google Trends.
+        - Popular topics or videos about AI agents on YouTube.
+
         3. FACTS TO DERIVE
-           - None specifically mentioned, but one could infer trends by analyzing search traffic data, viewers' interest over time, or engagement metrics.
-        
+        - Determine what aspects of AI agents are commonly discussed and why they might be trending.
+        - Potential impact or interest generated by these AI agent topics for a blog audience.
+
         4. EDUCATED GUESSES
-           - Topics that combine AI Agents with current events, popular culture, or relatable applications might be trending.
-           - Emerging technologies or breakthroughs related to AI, like OpenAI's tools or autonomous systems, could be popular topics.
-        
+        - AI agents related to areas like ChatGPT, AI companionship, AI in gaming, or AI tools for productivity may be trending.
+        - There could be a focus on ethical discussions or technological advancements in AI agents based on recent news and developments.
+
+
         Here is the plan to follow as best as possible:
-        
-        - Utilize WebSurfer to conduct a search on Google Trends for trending topics related to AI Agents and Agentic AI.
-        - Use WebSurfer to explore popular YouTube videos related to AI Agents and Agentic AI to identify what is currently engaging viewers.
-        - Analyze the search results and YouTube findings to draft three unique and trending video ideas on the specified topics.
-        - Present the final list of three video ideas to the user.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:41:36.426606], Orchestrator (thought):
-        
+
+        - WebSurfer will visit Google Trends to find current trending topics related to AI agents and summarize the findings.
+        - WebSurfer will also search YouTube for popular videos and trending topics related to AI agents and summarize the findings.
+        - Coder will compile and present three blog ideas based on the information gathered by WebSurfer from Google Trends and YouTube, ensuring the ideas are relevant and engaging for the target audience.
+        - UserProxy will review and provide feedback on the proposed blog ideas to finalize the most suitable topics.
+
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:20.448576], Orchestrator (thought):
+
         Updated Ledger:
         {
-          "is_request_satisfied": {
-            "reason": "The request is not yet satisfied as we have not provided the list of three different video ideas.",
+        "is_request_satisfied": {
+            "reason": "The request is not yet satisfied because we have not yet gathered the trending topics from Google Trends and YouTube, nor have we generated blog ideas based on those findings.",
             "answer": false
-          },
-          "is_in_loop": {
-            "reason": "No actions have been repeated yet and there is no indication of looping.",
+        },
+        "is_in_loop": {
+            "reason": "We are not in a loop as we have just outlined our plan and not yet repeated any actions.",
             "answer": false
-          },
-          "is_progress_being_made": {
-            "reason": "Progress is being made as we are preparing to research trending topics for the video ideas.",
+        },
+        "is_progress_being_made": {
+            "reason": "We are at the beginning of executing our plan to gather information and generate blog ideas.",
             "answer": true
-          },
-          "next_speaker": {
-            "reason": "WebSurfer needs to gather trending topics from Google Trends or YouTube.",
+        },
+        "next_speaker": {
+            "reason": "WebSurfer is the next logical choice to gather data from Google Trends and YouTube.",
             "answer": "WebSurfer"
-          },
-          "instruction_or_question": {
-            "reason": "WebSurfer should conduct a search for trending topics related to AI Agents and Agentic AI.",
-            "answer": "Please use Google Trends or YouTube to search for trending topics related to AI Agents and Agentic AI, and report back with what you find."
-          }
+        },
+        "instruction_or_question": {
+            "reason": "WebSurfer needs to perform searches on current trending topics related to AI agents on both Google Trends and YouTube.",
+            "answer": "Please visit Google Trends and find the current trending topics related to AI agents. Also, search YouTube for popular videos and trending topics about AI agents. Summarize your findings."
         }
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:41:36.426735], Orchestrator (-> WebSurfer):
-        
-        Please use Google Trends or YouTube to search for trending topics related to AI Agents and Agentic AI, and report back with what you find.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:41:36.426838], Orchestrator (thought):
-        
+        }
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:20.448763], Orchestrator (-> WebSurfer):
+
+        Please visit Google Trends and find the current trending topics related to AI agents. Also, search YouTube for popular videos and trending topics about AI agents. Summarize your findings.
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:20.449023], Orchestrator (thought):
+
         Next speaker WebSurfer
-        [2025-01-11T02:41:37.199543], WebSurfer: Screenshot: screenshot_som_1736530896.png
-        [2025-01-11T02:41:42.475604], WebSurfer: input_text( {"reasoning": "Inputting a search query related to \"AI Agents and Agentic AI\" will help us find relevant trends or videos.", "input_field_id": 55, "text_value": "AI Agents and Agentic AI trends"} )
-        [2025-01-11T02:41:46.828800], WebSurfer: Screenshot: screenshot_1736530906.png
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:41:57.083886], WebSurfer:
-        
-        I typed 'AI Agents and Agentic AI trends' into '0 characters out of 2000'.
-        
-        Here is a screenshot of [AI Agents and Agentic AI trends - Search](https://www.bing.com/search?q=AI+Agents+and+Agentic+AI+trends&form=QBLH&sp=-1&lq=0&pq=&sc=0-0&qs=n&sk=&cvid=E41CB03CF22B4F6385ECBA5061F2975B&ghsh=0&ghacc=0&ghpl=). The viewport shows 26% of the webpage, and is positioned at the top of the page.
+        [2025-02-04T09:42:21.677586], WebSurfer: Screenshot: screenshot_som_1738629741.png
+        [2025-02-04T09:42:27.319487], WebSurfer: web_search( {"reasoning": "I will use the web search to find current trending topics related to AI agents using Google Trends.", "query": "AI agent trends site:trends.google.com"} )
+        [2025-02-04T09:42:31.319697], WebSurfer: Screenshot: screenshot_1738629751.png
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:40.996793], WebSurfer:
+
+        I typed 'AI agent trends site:trends.google.com' into the browser search bar.
+
+        Here is a screenshot of [AI agent trends site:trends.google.com - Search](https://www.bing.com/search?q=AI+agent+trends+site%3Atrends.google.com&FORM=QBLH). The viewport shows 40% of the webpage, and is positioned at the top of the page.
         The following metadata was extracted from the webpage:
-        
+
         {
             "meta_tags": {
                 "referrer": "origin-when-cross-origin",
-                "SystemEntropyOriginTrialToken": "A1L3tx5CzccqjN3lK6st/fXMwhf9EeokCPf8XCt0DVI8JPbg37BWq0zKvlqgkdm8YEUbthoGkC/xdR1+iIz4txAAAABxeyJvcmlnaW4iOiJodHRwczovL3d3dy5iaW5nLmNvbTo0NDMiLCJmZWF0dXJlIjoiTXNVc2VyQWdlbnRMYXVuY2hOYXZUeXBlIiwiZXhwaXJ5IjoxNzM5NzI0MzExLCJpc1N1YmRvbWFpbiI6dHJ1ZX0=",
+                "SystemEntropyOriginTrialToken": "A5is4nwJJVnhaJpUr1URgj4vvAXSiHoK0VBbM9fawMskbDUj9WUREpa3JzGAo6xd1Cp2voQEG1h6NQ71AsMznU8AAABxeyJvcmlnaW4iOiJodHRwczovL3d3dy5iaW5nLmNvbTo0NDMiLCJmZWF0dXJlIjoiTXNVc2VyQWdlbnRMYXVuY2hOYXZUeXBlIiwiZXhwaXJ5IjoxNzUzNzQ3MjAwLCJpc1N1YmRvbWFpbiI6dHJ1ZX0=",
                 "og:description": "Intelligent search from Bing makes it easier to quickly find what you\u2019re looking for and rewards you.",
                 "og:site_name": "Bing",
-                "og:title": "AI Agents and Agentic AI trends - Bing",
-                "og:url": "https://www.bing.com/search?q=AI+Agents+and+Agentic+AI+trends&form=QBLH&sp=-1&lq=0&pq=&sc=0-0&qs=n&sk=&cvid=E41CB03CF22B4F6385ECBA5061F2975B&ghsh=0&ghacc=0&ghpl=",
+                "og:title": "AI agent trends site:trends.google.com - Bing",
+                "og:url": "https://www.bing.com/search?q=AI+agent+trends+site%3Atrends.google.com&FORM=QBLH",
                 "fb:app_id": "3732605936979161",
                 "og:image": "http://www.bing.com/sa/simg/facebook_sharing_5.png",
                 "og:type": "website",
@@ -1995,287 +2815,336 @@
                 "og:image:height": "315"
             }
         }
-        
+
         Automatic OCR of the page screenshot has detected the following text:
-        
-        **Main Content:**
-        
-        Microsoft Bing
-        
-        Search Query: "AI Agents and Agentic AI trends"
-        
-        Search Results Summary: "About 8,270,000 results"
-        
-        1. **Analytics Vidhya**
-           - URL: "https://www.analyticsvidhya.com > blog > ai-agent-trends"
-           - Title: "Top 10 AI Agent Trends and Predictions for 2025 - Analytics Vidhya"
-           - Date: "Dec 23, 2024"
-           - Description: "AI Agent Trends in 2025: What to Expect. Looking ahead to 2025, AI agents will continue to evolve and redefine the way we interact with technology. Here are the key trends to watch: Increase in AI Agent Adoption; Proactive AI Agents; AI Agents and Hyper [...]"
-        
-        2. **DATAVERSITY**
-           - URL: "https://www.dataversity.net > agentic-models-smaller-llms..."
-           - Title: "Agentic Models, Smaller LLMs, and Other AI Trends for 2025"
-           - Date: "Dec 31, 2024"
-           - Description: "Agentic AI Will Make Significant Progress. Gartner has identified agentic AI as the No. 1 technology trend to watch in 2025. But what, exactly, can we expect AI agents to [...]"
-           - Tags: "Progress", "Gartner"
-        
-        3. **ZDNET**
-           - URL: "https://www.zdnet.com > article > agentic-a..."
-           - Title: "Agentic AI is the top strategic technology trend for 2025"
-           - Date: "Oct 29, 2024"
-           - Description: "Companies will invest heavily in AI agents as the world of work changes forever. Research suggests one executive is the key to unlocking value from these transformations. The most important [...]"
-        
-        **News Section:**
-        
-        - Title: "News about AI Agents And Agentic Ai Trends"
-        - Source: "bing.com > news"
-        - Additional Information: "bing Hosted on MSN - 22h"
-        - Headline: "AI agents: 2025 predictions"
-        - Summary: "AI agents will gain wider use and deliver better experiences and more insights for marketers. Here's how. The post AI agents: 2025 predictions..."
-        - Publisher: "Forbes"
-        - Date: "11d"
-        - Article: "Five AI Trends To Expect In 2025: Beyond ChatGPT And..."
-        
-        **UI Elements:**
-        
-        - Header Buttons:
-          - "SEARCH"
-          - "COPILOT"
-          - "IMAGES"
-          - "VIDEOS"
-          - "MAPS"
-          - "NEWS"
-          - "MORE"
-          - "TOOLS"
-        
-        - Icons:
-          - "Microphone Icon"
-          - "Camera Icon"
-        
-        - Profile Section: "Sign in", Profile icon with the number "3", three horizontal lines for menu
-        
-        - Right Sidebar: "Deep search"
-        
-        - Related Searches Section/Sidebar:
-          - "agentic ai roles"
-          - "gartner agentic ai"
-          - "artificial intelligence agents"
-          - "gartner ai strategy 2025"
-          - "gartner ai strategy"
-          - "artificial intelligence strategy 2025"
-          - "artificial intelligence news"
-          - "artificial intelligence in business"
+
+        **Search bar:**  
+        AI agent trends site:trends.google.com
+
+        ---
+
+        **Top navigation menu:**  
+        SEARCH | COPILOT | IMAGES | VIDEOS | MAPS | NEWS | + MORE | TOOLS
+
+        ---
+
+        **Sign in**  
+        Profile icon with number 3  
+        Menu icon (three horizontal lines)
+
+        ---
+
+        **Main search results:**  
+        About 42,100 results
+
+        1. **google.com**  
+        https://trends.google.com › trends › explore  
+        **ai - Google Trends**  
+        Explore search interest for ai by time, location and popularity on Google Trends
+
+        2. **google.com**  
+        https://trends.google.com  
+        **Google Trends**  
+        Explore the year through the lens of Google Trends data. See how Google Trends is being used across the world, by newsrooms, charities, and more. What are we searching for? From the OECD: The...  
+        **Tags:** Google Apps, Philippine Elections, Explore, Crypto, Philippines, India
+
+        3. **google.com**  
+        https://trends.google.com › trends › explore  
+        **Google Trends**  
+        Google Trends
+
+        ---
+
+        **People also ask:**
+
+        1. **Is Artificial Intelligence a current trend?**  
+        Artificial Intelligence (AI) is already a current trend with ongoing applications in healthcare, autonomous vehicles, facial recognition, and more. In the future, we might see a shift towards...  
+        *Link:* Artificial Intelligence Trends in 20...  
+        *Source:* mygreatlearning.com
+
+        2. **What are the most important AI trends in 2021?**  
+        In 2024, one of the most important AI trends is Natalie Cartwright, co-founder, and COO of Finn AI, an AI banking platform, predicts that organizations will deliver expertise o...  
+        *Link:* Artificial Intelligence Trends in 20...  
+        *Source:* mygreatlearning.com
+
+        3. **What are AI startups?**  
+        The AI T...  
+        This repor...  
+        trend ident...  
+        data-driv...  
+        scouting...  
+        *Link:* Top 10...  
+        *Source:* start...  
+
+        ---
+
+        **Sidebar: Related searches for AI agent trends site:trends.google.com**
+
+        - ai agents in **2025**
+        - best ai **predictions 2025**
+        - **2025** ai predictions
+        - agents in **generative** ai
+        - the ai agents ***are coming***
+        - ai agents **startups**
+        - top agentic ai **companies**
+        - ai agents **in action**
+
+        “Deep search” icon and label
         <Image>
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:42:39.851248], Orchestrator (thought):
-        
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:45.655097], Orchestrator (thought):
+
         Updated Ledger:
         {
-          "is_request_satisfied": {
-            "reason": "We have identified potential topics related to AI Agents and Agentic AI from a web search, but have not yet translated these findings into three specific YouTube video ideas.",
+        "is_request_satisfied": {
+            "reason": "We have not yet returned three blog ideas based on trending topics about AI agents.",
             "answer": false
-          },
-          "is_in_loop": {
-            "reason": "The process is ongoing with acquiring information; no repeated steps or interactions indicating a loop.",
+        },
+        "is_in_loop": {
+            "reason": "We have not repeated any specific requests or actions; instead, we are sequentially gathering information.",
             "answer": false
-          },
-          "is_progress_being_made": {
-            "reason": "The search has yielded relevant trending topics about AI Agents and Agentic AI, providing a basis for creating video ideas.",
+        },
+        "is_progress_being_made": {
+            "reason": "WebSurfer has begun gathering data from Google Trends, which is necessary for creating blog ideas.",
             "answer": true
-          },
-          "next_speaker": {
-            "reason": "WebSurfer has searched Google Trends for relevant terms but now needs to investigate YouTube for popular topics.",
+        },
+        "next_speaker": {
+            "reason": "We should continue gathering data from YouTube to complement the Google Trends information.",
             "answer": "WebSurfer"
-          },
-          "instruction_or_question": {
-            "reason": "WebSurfer should continue to look for current popular topics related to AI Agents and Agentic AI on YouTube to identify engaging content trends.",
-            "answer": "Please search YouTube for popular and trending videos related to AI Agents and Agentic AI to identify what content is currently engaging viewers."
-          }
+        },
+        "instruction_or_question": {
+            "reason": "To gain a comprehensive view of AI agent trends, we need to explore popular topics on YouTube.",
+            "answer": "Please search for popular videos and trending topics related to AI agents on YouTube, and summarize your findings."
         }
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:42:39.851454], Orchestrator (-> WebSurfer):
-        
-        Please search YouTube for popular and trending videos related to AI Agents and Agentic AI to identify what content is currently engaging viewers.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:42:39.851728], Orchestrator (thought):
-        
+        }
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:45.655222], Orchestrator (-> WebSurfer):
+
+        Please search for popular videos and trending topics related to AI agents on YouTube, and summarize your findings.
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:42:45.655330], Orchestrator (thought):
+
         Next speaker WebSurfer
-        [2025-01-11T02:42:40.069968], WebSurfer: Screenshot: screenshot_som_1736530959.png
-        [2025-01-11T02:43:38.675592], WebSurfer: input_text( {"reasoning": "I will enter the search query for AI Agents and Agentic AI on YouTube to look for trending and popular videos.", "input_field_id": 30, "text_value": "AI Agents and Agentic AI trends YouTube"} )
-        [2025-01-11T02:43:42.033971], WebSurfer: Screenshot: screenshot_1736531022.png
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:43:49.704751], WebSurfer:
-        
-        I typed 'AI Agents and Agentic AI trends YouTube' into 'Enter your search here - Search suggestions will show as you type'.
-        
-        Here is a screenshot of [AI Agents and Agentic AI trends YouTube - Search](https://www.bing.com/search?q=AI%20Agents%20and%20Agentic%20AI%20trends%20YouTube&qs=n&form=QBRE&sp=-1&lq=0&pq=&sc=0-0&sk=&cvid=BC4ABC72ED39420BBFE8986E8EAC1EC2&ghsh=0&ghacc=0&ghpl=). The viewport shows 27% of the webpage, and is positioned at the top of the page.
+        [2025-02-04T09:42:45.938012], WebSurfer: Screenshot: screenshot_som_1738629765.png
+        [2025-02-04T09:42:49.704395], WebSurfer: click( {"reasoning": "I need to click the 'VIDEOS' link in order to search for popular AI agent topics on YouTube, as this search query hasn't been performed yet.", "target_id": 70} )
+        [2025-02-04T09:42:50.464353], WebSurfer: New tab or window.
+        [2025-02-04T09:42:53.817754], WebSurfer: Screenshot: screenshot_1738629773.png
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:01.974699], WebSurfer:
+
+        I clicked 'VIDEOS'.
+
+        Here is a screenshot of [AI agent trends site:trends.google.com - Search Videos](https://www.bing.com/videos/search?q=AI+agent+trends+site%3atrends.google.com&FORM=HDRSC4). The viewport shows 44% of the webpage, and is positioned at the top of the page.
+        The following metadata was extracted from the webpage:
+
+        {
+            "meta_tags": {
+                "robots": "noindex",
+                "referrer": "origin-when-cross-origin",
+                "og:description": "Intelligent search from Bing makes it easier to quickly find what you\u2019re looking for and rewards you.",
+                "og:site_name": "Bing",
+                "og:title": "AI agent trends site:trends.google.com - Bing",
+                "og:url": "https://www.bing.com/videos/search?q=AI+agent+trends+site%3atrends.google.com&FORM=HDRSC4",
+                "fb:app_id": "3732605936979161",
+                "og:image": "http://www.bing.com/sa/simg/facebook_sharing_5.png",
+                "og:type": "website",
+                "og:image:width": "600",
+                "og:image:height": "315"
+            }
+        }
+
         Automatic OCR of the page screenshot has detected the following text:
-        
-        **Search Query:** AI Agents and Agentic AI trends YouTube
-        
-        **Tabs/Options:**
+
+        Search query: AI agent trends site:trends.google.com
+
+        Search buttons: 
         - SEARCH
         - COPILOT
-        - VIDEOS
         - IMAGES
+        - VIDEOS (selected)
         - MAPS
         - NEWS
         - MORE
-        - TOOLS
-        
-        **Results:**
-        1. **Main Video Title:**
-           - Agentic AI
-           - A Modern Approach of Automation
-        
-           **Details:**
-           - 13 views
-           - 1 day ago
-           - YouTube › DSWithBappy
-           - Duration: 1:07:39
-        
-        2. **Side Video Thumbnails:**
-           - **Video 1:**
-             - Agentic AI - A Modern Approach of Automation | LIVE COURSE ANNOUNCEMENT
-             - 26 views
-             - 3 hours ago
-             - YouTube › DSWithBappy
-             - Duration: 10:32
-        
-           - **Video 2:**
-             - NVIDIA Nemetron: Agentic AI Models | AI Podcast
-             - 1 day ago
-             - YouTube › Stun Muffin
-             - Duration: 16:58
-        
-           - **Video 3:**
-             - AI AGENTS From Zero to Production in 35 Minutes
-             - 4.9K views
-             - 1 day ago
-             - YouTube › All About AI
-             - Duration: 35:57
-        
-        3. **Additional Results:**
-           - **YouTube Link:** The Agentic Era & The Future of AI Agents (2025) - AI Keynote
-             - 10 hours ago
-             - Description Preview: We're entering a new wave in 2025, referred to as the “agentic” revolution, or the agentic era. AI agents will be the next huge disruptor, providing 10x to 10...
-             - **Author:** Shawn Kanungo
-        
-           - **Other content from youtube.com:**
-             - Agentic AI - A Modern Approach of Automation - YouTube
-             - Andrew Ng Explores The Rise Of AI Agents And Agentic Reasoning | BUILD ...
+
+        Message: There are no results for AI agent trends site:trends.google.com. Check your spelling or try different keywords.
+
+        Section title: Popular on Web
+
+        Videos:
+        1. "CHEAP RACECAR BATTLE Day 3 - The LAW Got Us..." 
+        - Duration: 48:11
+        - Views: 1.6M
+        - Time: 3 days ago
+        - Source: YouTube › Cleetus McFarland
+
+        2. "Did Kanye West, Bianca Censori Get Kicked Out of Grammys? The Truth | Grammys 2025 | E! News"
+        - Duration: 1:17
+        - Views: 1.2M
+        - Time: 20 hours ago
+        - Source: YouTube › E! News
+
+        3. "Content Nuke - Hasan Piker"
+        - Duration: 1:43:14
+        - Views: 1.5M
+        - Time: 3 days ago
+        - Source: YouTube › h3h3Productions
+
+        4. "You're Not Crazy, Trump Is | Noem Glams Up For Bronx Raid | ICE Is Detaining American Citiz..."
+        - Duration: 10:23
+        - Views: 2.3M
+        - Time: 3 days ago
+        - Source: YouTube › The Late Show with Stephen Colbert
+
+        5. "DROP | Official Music Video"
+        - Duration not visible
+        - Views: 11.9M
+        - Time: 1 week ago
+
+        6. "DOECHII Wins BEST RAP ALBUM | 2025 GRAMMYs"
+        - Duration: 3:29
+        - Views: 1.2M
+        - Time: 22 hours ago
+
+        7. "Grammys 2025: LIVE from the red carpet"
+        - Duration: 5:00:56
+        - Views: 2.3M
+        - Time: 23 hours ago
+        - Label: LIVE 😊
+
+        8. "I Only Ate 'Healthy' Fast Food for 24 Hours!"
+        - Duration: 29:48
+        - Views: 2.9M
+        - Time: 5 days ago
+
+        Language/Region Selection: 한국어 
+        Sign in button: Sign in
+        Notifications count: 6 
+
+        SafeSearch setting: SafeSearch: Strict
+        Filter button
+        Feedback option: Feedback
         <Image>
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:44:42.127963], Orchestrator (thought):
-        
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:09.183516], Orchestrator (thought):
+
         Updated Ledger:
         {
-          "is_request_satisfied": {
-            "reason": "The request has been partially addressed by gathering search results for trending topics related to AI Agents and Agentic AI. However, a final list of three video ideas has not yet been provided.",
+        "is_request_satisfied": {
+            "reason": "So far, we have explored Google Trends, but there was no specific information found about AI agent trends. The YouTube search returned unrelated results.",
             "answer": false
-          },
-          "is_in_loop": {
-            "reason": "We have asked for both Google Trends and YouTube trends on the topic and received results, so no repetitive requests are being made.",
+        },
+        "is_in_loop": {
+            "reason": "We are seeing similar results and issues with searching. Attempting new approaches without repeating the same actions.",
             "answer": false
-          },
-          "is_progress_being_made": {
-            "reason": "We have gathered useful insights from searches on Google Trends and YouTube, adding value towards fulfilling the request.",
+        },
+        "is_progress_being_made": {
+            "reason": "Although specific searches did not yield relevant results, different approaches are being attempted.",
             "answer": true
-          },
-          "next_speaker": {
-            "reason": "A list of video ideas based on the research needs to be formulated now.",
+        },
+        "next_speaker": {
+            "reason": "Coder can use the current knowledge and general trends about AI to suggest possible blog topics.",
             "answer": "Coder"
-          },
-          "instruction_or_question": {
-            "reason": "The Coder can analyze the insights from recent web search results to generate specific and engaging YouTube video ideas.",
-            "answer": "Please analyze the gathered information on trending topics related to AI Agents and Agentic AI to formulate three unique and compelling YouTube video ideas."
-          }
+        },
+        "instruction_or_question": {
+            "reason": "Coder can utilize existing knowledge about AI and the typical areas of interest related to AI agents to create three potential blog topics.",
+            "answer": "Please suggest three blog post ideas about AI agent trends, using known and speculative information about trending AI agent topics."
         }
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:44:42.128256], Orchestrator (-> Coder):
-        
-        Please analyze the gathered information on trending topics related to AI Agents and Agentic AI to formulate three unique and compelling YouTube video ideas.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:44:42.128688], Orchestrator (thought):
-        
+        }
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:09.183759], Orchestrator (-> Coder):
+
+        Please suggest three blog post ideas about AI agent trends, using known and speculative information about trending AI agent topics.
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:09.184003], Orchestrator (thought):
+
         Next speaker Coder
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:45:43.668116], Coder:
-        
-        Based on the analysis of trending topics around AI Agents and Agentic AI, here are three video ideas that could capture viewers' interest:
-        
-        1. **Title: "The Future of AI: Agentic AI and How It Will Revolutionize Automation"**
-           - Description: Dive into the concept of Agentic AI and explore how it is poised to redefine automation as we know it. This video will explain what Agentic AI is, showcase some real-world applications, and discuss its implications for various industries such as manufacturing, customer service, and beyond.
-        
-        2. **Title: "AI Agents: From Zero to Production in Under an Hour - A Step-by-Step Guide"**
-           - Description: Follow along as we take AI Agents from zero to fully deployed in a production environment in less than 60 minutes. This tutorial-style video will cover the tools, platforms, and coding techniques required to get an AI agent operational, serving as a practical resource for both beginners and experienced developers.
-        
-        3. **Title: "Agentic AI 2025: Predictions and Trends to Watch"**
-           - Description: Get a glimpse of the future with our detailed predictions on how Agentic AI will evolve by 2025. Featuring insights from industry experts and thought leaders, this video will discuss upcoming trends, potential breakthroughs, and the technological advancements that could make AI agents a crucial part of our daily lives.
-        
-        These topics leverage current trends and insights regarding the evolution and impact of AI Agents and Agentic AI, ensuring they are timely and relevant for the audience. TERMINATE
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:46:42.727845], Orchestrator (thought):
-        
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:16.042261], Coder:
+
+        Based on the trends and speculative insights into AI agents, here are three blog post ideas that you could explore:
+
+        1. **The Future of AI Agents: 2025 Predictions and Innovations**
+        - This blog post could delve into future predictions regarding AI agents, discussing potential advancements, challenges, and innovations expected by 2025. You might cover topics such as AI in automation, AI companions, and AI's roles in various industries, informed by trending searches on Google's Trends related to "best AI predictions 2025" and "AI agents in 2025."
+
+        2. **Exploring Generative AI and Agentic Intelligences**
+        - In this post, focus on generative AI and its impact on the development of intelligent, autonomous agents. Discuss how these AI agents generate content, insights, or solutions without extensive manual intervention, inspired by the trend "agents in generative AI." Cover potential uses, challenges, and ethical considerations.
+
+        3. **Startup Spotlight: AI Agent Companies Leading the Charge**
+        - This idea would highlight innovative startups that are spearheading advancements in AI agents. By using trends like "AI agents startups" and "top agentic AI companies," you could examine key players in the market, their contributions to AI technology, and the impact they have on various industries.
+
+        These ideas touch on current and speculative areas of interest that could captivate your audience's attention. TERMINATE
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:21.977780], Orchestrator (thought):
+
         Updated Ledger:
         {
-          "is_request_satisfied": {
-            "reason": "We have successfully identified three unique and trending video ideas based on the current trends around AI Agents and Agentic AI.",
+        "is_request_satisfied": {
+            "reason": "Three blog ideas about AI agent trends have been proposed.",
             "answer": true
-          },
-          "is_in_loop": {
-            "reason": "We are not repeating any tasks but moving forward based on gathered information, culminating in providing the requested video ideas.",
+        },
+        "is_in_loop": {
+            "reason": "We are not repeating any actions or requests.",
             "answer": false
-          },
-          "is_progress_being_made": {
-            "reason": "Recent actions have led to the successful formulation of video content ideas, which align with the user's request.",
+        },
+        "is_progress_being_made": {
+            "reason": "We have provided the user with three complete blog ideas.",
             "answer": true
-          },
-          "next_speaker": {
-            "reason": "The task seems completed as the required output has been provided.",
+        },
+        "next_speaker": {
+            "reason": "The proposed blog ideas have been presented for the user's consideration.",
             "answer": "UserProxy"
-          },
-          "instruction_or_question": {
-            "reason": "The task has been fulfilled with the provision of suitable video ideas.",
-            "answer": "The video ideas have been provided and the request is complete. If you need anything else, feel free to ask!"
-          }
+        },
+        "instruction_or_question": {
+            "reason": "The user needs to review the blog ideas to decide their suitability.",
+            "answer": "Please review the proposed blog ideas and let us know if they meet your requirements or if any adjustments are needed."
         }
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:46:42.727988], Orchestrator (thought):
-        
+        }
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:21.977859], Orchestrator (thought):
+
         Request satisfied.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:47:43.863645], Orchestrator (final answer):
-        
-        Here are three YouTube video ideas based on trending topics around AI Agents and Agentic AI:
-        
-        1. **"The Future of AI: Agentic AI and How It Will Revolutionize Automation"**
-           - Explore the concept of Agentic AI and its potential to transform automation across various industries. This video will explain Agentic AI, showcase real-world applications, and discuss its future impact.
-        
-        2. **"AI Agents: From Zero to Production in Under an Hour - A Step-by-Step Guide"**
-           - Follow a practical tutorial on taking AI Agents from development to deployment in under 60 minutes. This video will cover the necessary tools, platforms, and coding techniques for both beginners and experienced developers.
-        
-        3. **"Agentic AI 2025: Predictions and Trends to Watch"**
-           - Delve into predictions and trends for Agentic AI by 2025, featuring insights from industry experts. Discuss upcoming advancements and breakthroughs that could make AI agents an essential part of everyday life.
-        
-        These ideas are inspired by current trends and insights, ensuring they are relevant and engaging for your audience.
-        
-        ---------------------------------------------------------------------------
-        [2025-01-11T02:47:43.864154], Orchestrator (termination condition):
-        
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:29.312789], Orchestrator (final answer):
+
+
+        다음은 AI 에이전트에 관한 블로그 주제 아이디어 세 가지입니다:
+
+        1. **AI 에이전트의 미래: 2025 예측과 혁신**
+        - AI 에이전트의 미래를 예측하고 다가올 2025년까지 예상되는 발전, 도전 과제 및 혁신을 탐구하는 블로그입니다. 자동화, AI 컴패니언, 다양한 산업에서의 AI 역할 등을 다룰 수 있습니다.
+
+        2. **생성 AI 및 에이전트적 지능 탐구**
+        - 생성 AI가 자율적인 지능형 에이전트 개발에 미치는 영향을 중심으로 블로그를 작성해보세요. 이러한 AI 에이전트가 어떻게 콘텐츠, 통찰력 또는 솔루션을 생성하는지, 그리고 이에 대한 사용 사례나 윤리적인 고려사항을 다룰 수 있습니다.
+
+        3. **스타트업 스포트라이트: AI 에이전트 기업 선두주자**
+        - AI 에이전트 기술 발전을 이끄는 혁신적인 스타트업에 대한 글입니다. 주요 업체들의 시장 내 역할, AI 기술에 대한 기여 및 다양한 산업에 미치는 영향을 조명해 볼 수 있습니다.
+
+        이 아이디어들은 현재와 미래의 AI 에이전트 관련 주제를 다루며 독자들의 관심을 끌 수 있을 것입니다.
+
+        --------------------------------------------------------------------------- 
+        [2025-02-04T09:43:29.312962], Orchestrator (termination condition):
+
         No agent selected.
         ```
+        </details>
+        <br>
+
+    - **참고 (screenshot)**
+    ![image.png](images/log_files/screenshot_1738629702.png)
+    <br>
+    - **참고 (Set-of-Mark)**
+    ![image.png](images/log_files/screenshot_som_1738629765.png)
+  
 
 ## **Clean Up**
 
