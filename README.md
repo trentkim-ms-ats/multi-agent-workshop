@@ -19,10 +19,15 @@
 
 [Hands-on Lab Part 1: Build a Multi-Agent Application](#hands-on-lab-part-1-build-a-multi-agent-application-2-hours)
 
-- **STEP 1**: 시나리오 이해 및 설계 
-- **STEP 2**: 배포 
+- **Step 1**: 시나리오 이해 및 설계 
+- **Step 2**: 배포
+- **Step 3**: Creative Writer 실행 
 
 [Hands-on Lab Part 2: Build a Multi-Agent Using AutoGen](#hands-on-lab-part-2-build-a-multi-agent-using-autogen)
+
+-**Step 1**: Multi-Agent와 AutoGen
+-**Step 2**: AutoGen 실습 환경 설정
+-**Step 3**: Notebook 실행
 
 [Hands-on Lab Part 3: Build an Advanced Multi-Agent Using Magentic-One](#hands-on-lab-part-3-build-an-advanced-multi-agent-using-magentic-one)
 
@@ -499,7 +504,7 @@
         
         - Profile - Settings - API & Integrations의 Personal API tokens 사용
 
-### **STEP 3: Hands-on Lab (45 minutes)**
+### **STEP 3: Notebook 실행 (45 minutes)**
 
 - **Notebook (multi-agent-workshop/notebook.ipynb) 실행**
     - **환경 설정**
