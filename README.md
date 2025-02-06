@@ -103,6 +103,22 @@
 
 - Product Prompty 예
 
+        ---
+        name: Contoso Product Reasearch
+        description: A prompt that uses context to ground an incoming question
+        authors:
+        - Seth Juarez
+        model:
+        api: chat
+        configuration:
+            type: azure_openai
+            azure_deployment: gpt-35-turbo
+            api_version: 2023-07-01-preview
+        parameters:
+            max_tokens: 1500
+        sample:
+        context: Can you use a selection of sports and outdoor cooking gear as context?
+        ---
         system:
 
         You are an AI assistant who helps people find information from a search index.
@@ -150,7 +166,7 @@
         
     - VS Code 실행
         - Docker 설치 (Dev Container로 자동 설치)
-    - 패키지 설치
+    <!-- - 패키지 설치
         
         ```bash
         python3 -m venv .venv
@@ -163,7 +179,8 @@
     - Azure Developer CLI (azd) 설치
         - [https://learn.microsoft.com/ko-kr/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows](https://learn.microsoft.com/ko-kr/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     - Azure CLI (az) 설치
-        - [https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli)
+        - [https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli) -->
+
     - Azure Developer CLI 및 Azure CLI 인증
         
         ```bash
