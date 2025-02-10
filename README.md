@@ -1457,19 +1457,18 @@
 
 ### **STEP 2: 환경 설정 (5 minutes)**
 
-- **Git Clone**
+- **magentic-one 디렉토리 변경**
     
     ```bash
-    git clone https://github.com/microsoft/autogen.git
-    cd autogen/python/packages/autogen-magentic-one
+    cd magentic-one
     ```
 - **가상환경 설정**
     
     ```bash
-    python3 -m venv .autogen
+    python3 -m venv .magentic-one
     
-    source .autogen/bin/activate
-    # For Windows, run .autogen\Scripts\activate to activate the environment.
+    source .magentic-one/bin/activate
+    # For Windows, run .magentic-one\Scripts\activate to activate the environment.
     ```
 - **Magentic-One 패키지 설치**
     

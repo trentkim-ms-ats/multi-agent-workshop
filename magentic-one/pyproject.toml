@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "autogen-magentic-one"
+version = "0.0.1"
+license = {file = "LICENSE-CODE"}
+description = ''
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "autogen-core==0.4.0.dev6",
+    "autogen-ext[docker]==0.4.0.dev6",
+    "beautifulsoup4",
+    "aiofiles",
+    "requests",
+    "mammoth",
+    "markdownify",
+    "numpy",
+    "python-pptx",
+    "pandas",
+    "openpyxl",
+    "pdfminer.six",
+    "puremagic",
+    "pydub",
+    "youtube-transcript-api",
+    "SpeechRecognition",
+    "pathvalidate",
+    "playwright",
+    "pydantic<3.0.0,>=2.0.0",
+    "azure-core", 
+    "azure-identity",
+]
+
+
+[tool.poe.tasks]
+test.sequence = [
+    "playwright install",
+    "pytest -n auto",
+]
+test.default_item_type = "cmd"
+
+[tool.ruff]
+exclude = ["build", "dist", "page_script.js"]
+include = [
+    "src/**",
+    "examples/*.py",
+    "tests/**/*.py",
+]
