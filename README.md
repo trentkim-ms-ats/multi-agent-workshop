@@ -1490,7 +1490,7 @@
     ENVIRON_KEY_CHAT_COMPLETION_PROVIDER = "azure"
     ENVIRON_KEY_CHAT_COMPLETION_KWARGS_JSON = '{"api_version": "2024-06-01", "azure_endpoint": "<YOUR_ENDPOINT>", "model_capabilities": { "function_calling": true, "json_output": true, "vision": true}, "azure_ad_token_provider": "DEFAULT", "model": "gpt-4o-2024-08-06", "api_key": "<YOUR_API_KEY>", "azure_deployment":"gpt-4o"}'
     ```
-    autogen/python/packages/autogen-magentic-one/src/autogen_magentic_one/**utils.py** 파일의 아래 코드를 변경
+    magentic-one/src/autogen_magentic_one/**utils.py** 파일의 아래 코드를 변경
     
     
 
