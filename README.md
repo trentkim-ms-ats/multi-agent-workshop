@@ -1473,6 +1473,7 @@
 - **Magentic-One 패키지 설치**
     
     ```bash
+    # autogen 0.4.0.dev6 버전 사용
     pip install -e .
     ```
     
