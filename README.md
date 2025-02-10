@@ -2682,6 +2682,10 @@
         </details>
         <br>
         
+    - **Try It!**
+        ```bash
+        tic-tac-toe 프로그램이 필요합니다. tic-tac-toe.py 파일을 생성하여 게임 코드를 작성한 뒤 테스트를 실행하고 결과를 보고하세요.
+        ```
 - **Lab 4: WebSurfer를 활용하여 아이디어 구상**
     - Commands
         
