@@ -24,19 +24,7 @@ from .messages import (
 )
 
 ENVIRON_KEY_CHAT_COMPLETION_PROVIDER = "azure"
-ENVIRON_KEY_CHAT_COMPLETION_KWARGS_JSON = """{
-  "api_version": "2024-06-01",
-  "azure_endpoint": "<ENDPOINT>",
-  "model_capabilities": {
-    "function_calling": true,
-    "json_output": true,
-    "vision": true
-  },
-  "azure_ad_token_provider": "DEFAULT",
-  "model": "gpt-4o-2024-08-06",
-  "api_key": "<API_KEY>",
-  "azure_deployment":"gpt-4o",
-}"""
+ENVIRON_KEY_CHAT_COMPLETION_KWARGS_JSON = '{"api_version": "2024-06-01", "azure_endpoint": "<YOUR_ENDPOINT>", "model_capabilities": { "function_calling": true, "json_output": true, "vision": true}, "azure_ad_token_provider": "DEFAULT", "model": "gpt-4o-2024-08-06", "api_key": "<YOUR_KEY>", "azure_deployment":"gpt-4o"}'
 
 # The singleton _default_azure_ad_token_provider, which will be created if needed
 _default_azure_ad_token_provider = None
