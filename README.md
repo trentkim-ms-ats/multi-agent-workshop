@@ -162,7 +162,7 @@
     <summary>Researcher Prompty 상세보기</summary>
 
     - Researcher Prompty
-        ```json
+        ```
         ---
         name: Researcher Agent
         description: >-
@@ -229,7 +229,7 @@
     <summary>Writer Prompty 상세보기</summary>
 
     - Writer Prompty
-        ```json
+        ```
         ---
         name: Writer Agent
         description: This writer agent takes a request from a user as well as research provider by a web researcher to produce a document.
