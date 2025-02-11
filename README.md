@@ -162,7 +162,7 @@
     <summary>Researcher Prompty 상세보기</summary>
 
     - Researcher Prompty
-
+        ```json
         ---
         name: Researcher Agent
         description: >-
@@ -221,6 +221,7 @@
 
         user:
         {{instructions}}
+        ```
     </details>
 
 
@@ -228,6 +229,7 @@
     <summary>Writer Prompty 상세보기</summary>
 
     - Writer Prompty
+        ```json
         ---
         name: Writer Agent
         description: This writer agent takes a request from a user as well as research provider by a web researcher to produce a document.
@@ -354,7 +356,7 @@
         Please format the article as markdown but do not include ```markdown``` in the document. If you recieved any feedback 
         return the article and the feedback you recieved seperated by this string '---'. Do not return the feedback if the feedback is No Feedback.
         This means you have not received feedback and you should not return that. 
-
+        ```
     </details>
 
 
