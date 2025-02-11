@@ -25,9 +25,9 @@
 
 [Hands-on Lab Part 2: Build a Multi-Agent Using AutoGen](#hands-on-lab-part-2-build-a-multi-agent-using-autogen)
 
--**Step 1**: Multi-Agent와 AutoGen
--**Step 2**: AutoGen 실습 환경 설정
--**Step 3**: Notebook 실행
+- **Step 1**: Multi-Agent와 AutoGen
+- **Step 2**: AutoGen 실습 환경 설정
+- **Step 3**: Notebook 실행
 
 [Hands-on Lab Part 3: Build an Advanced Multi-Agent Using Magentic-One](#hands-on-lab-part-3-build-an-advanced-multi-agent-using-magentic-one)
 
@@ -54,17 +54,15 @@
 
 - **AutoGen**
 - **Magentic-One**
-- LLM을 활용한 Agent Workflow 설계 및 구성
+- **LLM을 활용한 Agent Workflow 설계 및 구성**
     - **RAG와 AI Agent**
         - 벡터 기반 검색 및 저장
     - **API 통합**
         - Tool 및 외부 데이터소스 연결
 
-### **Option**
+- **Setup: Azure Subscription**
 
-- **Setup Hands-on (Azure Subscription)**
-
-## **Hands-on Lab Part 1: Build a Multi-Agent Application (2 hours)**
+## **Hands-on Lab Part 1: Build a Multi-Agent Application (0.5 hours)**
 
 ### **STEP 1: 시나리오 이해 및 설계 (30 minutes)**
 
@@ -72,7 +70,7 @@
 
 
 - **창의적 글쓰기 도우미 (Contoso-Creative-Writer) 시나리오**
-    - Contoso Creative Writer 앱은 가상 회사 Contoso의 마케팅 팀이 잘 조사된 제품 관련 기사를 작성할 수 있도록 돕는 것을 목표로 기사 작성을 위해 작동하는 여러 에이전트들로 구성되어 있습니다.
+    - Creative Writer 앱은 가상 회사 Contoso의 마케팅 팀이 잘 조사된 제품 관련 기사를 작성할 수 있도록 돕는 것을 목표로 기사 작성을 위해 작동하는 여러 에이전트들로 구성되어 있습니다.
         
         ![image.png](images/43e42755-97db-471f-9c0c-d75d8ab1d74e.png)
         
@@ -80,7 +78,7 @@
     - **Product Agent**: 유사성을 기반으로 관련 제품을 검색하기 위해 Azure AI Search 벡터저장소 사용
     - **Writer Agent**: 검색된 Research와 Product 정보를 통합하여 유용한 기사 작성
     - **Editor Agent**: Azure OpenAI를 사용해서 기사를 리뷰하고 재작성하거나 그대로 사용
-- 주요 기술 요소
+- **주요 기술 요소**
     - **Prompty (**[https://prompty.ai/docs](https://prompty.ai/docs))
         
         ![image.png](images/image%202.png)
@@ -159,6 +157,206 @@
 
         user:
         {{context}}
+
+    <details>
+    <summary>Researcher Prompty 상세보기</summary>
+
+    - Researcher Prompty
+
+        ---
+        name: Researcher Agent
+        description: >-
+        This agent is designed to help a writer by formulating expert queries 
+        and providing the writer with the information they need.
+        authors:
+        - Seth Juarez
+        model:
+        api: chat
+        configuration: 
+            type: azure_openai
+            azure_deployment: gpt-35-turbo
+            api_version: 2023-07-01-preview
+        parameters:
+            tools: ${file:functions.json}
+        sample:
+        instructions: Can you find the latest camping trends and what folks are doing in the winter?
+        feedback: Can you dig find some information about the latest camping trends and what folks are doing in the winter?
+        ---
+        system:
+        # Researcher Agent
+        You are an expert researcher that helps put together information for a writer who
+        is putting together an article. You have access to a variety of tools that can help.
+        Given some context and writer feedback, you can use these tools to help the writer
+        by formulating expert queries and providing the writer with the information they need.
+        Your queries should be descriptive and match the provided instructions.
+
+        # Feedback
+        Use this feedback to help you refine your queries and responses - if there is any feedback:
+
+        {{feedback}}
+
+        # Market Codes
+        The following are the market codes for the countries and regions that are supported by 
+        the Microsoft Bing API and should be used when formulating your queries. Use the language 
+        in the context to determine the market code using the following list of supported 
+        languages - do not use any other language or market code not listed here:
+
+        Portuguese,	pt-BR
+        Danish,	da-DK
+        Finnish,	fi-FI
+        French,	fr-FR
+        German,	de-DE
+        Traditional Chinese,	zh-HK
+        Italian,	it-IT
+        Japanese,	ja-JP
+        Korean,	ko-KR
+        Dutch,	nl-NL
+        Norwegian,	no-NO
+        Polish,	pl-PL
+        Russian,	ru-RU
+        Spanish,	es-ES
+        Swedish,	sv-SE
+        Turkish,	tr-TR
+        English,	en-US
+
+        user:
+        {{instructions}}
+    </details>
+
+
+    <details>
+    <summary>Writer Prompty 상세보기</summary>
+
+    - Writer Prompty
+        ---
+        name: Writer Agent
+        description: This writer agent takes a request from a user as well as research provider by a web researcher to produce a document.
+        authors:
+        - Seth Juarez
+        model:
+        api: chat
+        configuration:
+            type: azure_openai
+            azure_deployment: gpt-4
+            api_version: 2023-07-01-preview
+        parameters:
+            max_tokens: 2000
+        sample:
+        researchContext: Can you find the latest camping trends and what folks are doing in the winter?
+        research: ${file:research.json}
+        productContext: Can you use a selection of tents and backpacks as context?
+        products: ${file:products.json}
+        feedback: The article was great, but it could use more information about camping in the winter.
+        assignment: Write a fun and engaging article that includes the research and product information. The article should be between 800 and 1000 words.
+        ---
+        system:
+        You are an expert copywriter who can take research from a web researcher as well as some product
+        information from marketing to produce a fun and engaging article that can be used as a magazine
+        article or a blog post. The goal is to engage the reader and provide them with a fun and informative
+        article. The article should be between 800 and 1000 words. Use the following instructions as the basis
+        of your article:
+
+        # Research
+        {{researchContext}}
+
+        # Web Research
+        Use this research to write the article. The research can include entities, web search results, and 
+        news search results. While it is ok to use the research as a basis for the article, please do not
+        copy and paste the research verbatim. Instead, use the research to write a fun and engaging article.
+        Do not invent information that is not in the research.
+
+        {% if research.entities|length > 0 %}
+        ## Entity Results (Places, People, or Things)
+        {% for item in research.entities %}
+        url: {{item.url}}
+
+        name: {{item.name}}
+
+        description: {{item.description}}
+        {% endfor %}
+        {% endif %}
+
+        {% if research.web|length > 0 %}
+        ## Web Search Results
+        {% for item in research.web %}
+        url: {{item.url}}
+
+        title: {{item.title}}
+
+        description: {{item.description}}
+
+        {% endfor %}
+        {% endif %}
+
+        {% if research.news|length > 0 %}
+        ## News Search Results
+        {% for item in research.news %}
+        url: {{item.url}}
+
+        title: {{item.title}}
+
+        description: {{item.description}}
+        {% endfor %}
+        {% endif %}
+
+        If any research provides citation information, please include it in the document. For example, if the 
+        research provides a URL, include it in the document. Here's an examplem if provided the following:
+
+        url: https://en.wikipedia.org/wiki/Satya_Nadella
+        name: Satya Nadella - Wikipedia,
+        description: Nadella attended the Hyderabad Public School, Begumpet [18] before receiving a bachelor's degree in electrical engineering from the Manipal Institute of Technology in Karnataka in 1988.
+
+        The document should include the following:
+        Nadella attended the Hyderabad Public School [Citation](https://en.wikipedia.org/wiki/Satya_Nadella) ...
+
+        # Product Information
+        {{productContext}}
+
+        # Product Information
+        Use this product information to write the article. The product information can include product names and
+        descriptions. While it is ok to use the product information as a basis for the article, please do not
+        copy and paste the product information verbatim. Instead, use the product information to write a fun and
+        engaging article. Do not invent information that is not in the product information. Make sure to use 
+        citation information if provided. For example:
+
+        ## Summit Hiker Shoes
+        id: 1234
+        url: products/summit-hiker-shoes
+        content: The Summit Hiker Shoes are the best shoes for hiking. They are made of the best materials and are very comfortable.
+
+        Anytime the Summit Hiker Shoes are mentioned in the article, include the citation information like this:
+        [Summit Hiker Shoes](products/summit-hiker-shoes) ...
+
+        {% for product in products %}
+        ## {{product.title}}
+        id: {{product.id}}
+        url: {{product.url}}
+        content:
+        {{product.content}}
+        {% endfor %}
+
+        # Article
+        Write a fun and engaging article that includes the research and product information. The article should
+        be between 800 and 1000 words. The goal is to engage the reader and provide them with a fun and informative
+        article.
+
+        # Feedback
+        Use this feedback to help you refine your response - if there is any feedback:
+
+        {{feedback}}
+
+        # Final Instructions
+        Try to keep your writing short and to the point. The goal is to engage the reader and provide them with
+        a fun and informative article. The article should be between 800 and 1200 words.
+
+        user:
+        {{assignment}}
+        Please format the article as markdown but do not include ```markdown``` in the document. If you recieved any feedback 
+        return the article and the feedback you recieved seperated by this string '---'. Do not return the feedback if the feedback is No Feedback.
+        This means you have not received feedback and you should not return that. 
+
+    </details>
+
 
 ### **STEP 2: 배포 (30 minutes)**
 

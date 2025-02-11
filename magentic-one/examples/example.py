@@ -115,22 +115,3 @@ if __name__ == "__main__":
     log_handler = LogHandler(filename=os.path.join(args.logs_dir, "log.jsonl"))
     logger.handlers = [log_handler]
     asyncio.run(main(args.logs_dir, args.hil_mode, args.save_screenshots))
-
-# Create a python program to add 2 numbers and then run it
-
-# Find information about Elon Musk's new gov role
-# Watch my youtube video on ai agents
-# Write an advanced snake game with a unique feature
-# Update me on the new quen2.5 32b coder model
-# Research a very hot topic in AI for my next video
-
-# python examples/example_coder.py --logs_dir ./logs --hil_mode --save_screenshots --file_surfer
-# The customer needs a new snake game with a unique feature, plan out the new feature for the snake game, create the file snakegame.py, write the code for game, test it and report back
-
-# python examples/example_coder.py --logs_dir ./logs --hil_mode
-# The customer needs a new tik-tak-toe game with a unique feature, plan out the new feature for the tik-tak-toe game, create the file tik-tak-toe.py, write the code for game, test it and report back
-
-# python examples/example.py --logs_dir ./logs --hil_mode --save_screenshots
-# The customer needs information about the new qwen 2.5 docer 32b llm model, find some benchmarks and compare it to other models please, return a list of a findings
-
-# I need 3 different ideas for my next youtube video. Find trending topics around AI Agents, Agentic AI. Use google trends or similar, search youtube to find popular topics. Return a list of 3 different ideas.
