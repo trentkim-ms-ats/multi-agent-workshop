@@ -1685,6 +1685,13 @@
     
     [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
     [https://www.ffmpeg.org/download.html](https://www.ffmpeg.org/download.html)
+
+- Playwright (크로스 브라우저 테스트 자동화를 위한 도구) 설치
+    
+    ```bash
+    playwright install --with-deps chromium
+    ```
+    
 - ENVIRON_KEY 설정
 
     magentic-one/src/autogen_magentic_one/**utils.py** 파일의 <YOUR_ENDPOINT>, <YOUR_API_KEY> 코드를 변경
