@@ -399,11 +399,12 @@
         cd src/api
         pip install -r requirements.txt
         ```
-        
+     -->
+         
     - Azure Developer CLI (azd) 설치
         - [https://learn.microsoft.com/ko-kr/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows](https://learn.microsoft.com/ko-kr/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     - Azure CLI (az) 설치
-        - [https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli) -->
+        - [https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli](https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli)
 
     - Azure Developer CLI 및 Azure CLI 인증
         
@@ -1661,6 +1662,13 @@
 
 ### **STEP 2: 환경 설정 (5 minutes)**
 
+- Azure Developer CLI 및 Azure CLI 인증
+        
+    ```bash
+    azd auth login
+    az login --use-device-code
+    ```
+
 - **magentic-one 디렉토리 변경**
     
     ```bash
@@ -1691,7 +1699,7 @@
     ```bash
     playwright install --with-deps chromium
     ```
-    
+
 - ENVIRON_KEY 설정
 
     magentic-one/src/autogen_magentic_one/**utils.py** 파일의 <YOUR_ENDPOINT>, <YOUR_API_KEY> 코드를 변경
