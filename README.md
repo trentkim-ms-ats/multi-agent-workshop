@@ -1669,7 +1669,7 @@
 - **가상환경 설정**
     
     ```bash
-    # Python 3.11 필요 (Microsoft Store나 Brew 이용)
+    # Python 3.10 필요 (Microsoft Store나 Brew 이용)
     python3 -m venv .magentic-one
     
     source .magentic-one/bin/activate
@@ -1681,9 +1681,10 @@
     # autogen 0.4.0.dev6 버전 사용
     pip install -e .
     ```    
-- Docker 설치 (코드 실행환경)
+- Docker 및 ffmpeg 설치 (실행환경)
     
     [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+    [https://www.ffmpeg.org/download.html](https://www.ffmpeg.org/download.html)
 - ENVIRON_KEY 설정
 
     magentic-one/src/autogen_magentic_one/**utils.py** 파일의 <YOUR_ENDPOINT>, <YOUR_API_KEY> 코드를 변경
