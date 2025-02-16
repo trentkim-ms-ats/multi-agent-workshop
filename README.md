@@ -400,7 +400,7 @@
         pip install -r requirements.txt
         ```
      -->
-         
+
     - Azure Developer CLI (azd) 설치
         - [https://learn.microsoft.com/ko-kr/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows](https://learn.microsoft.com/ko-kr/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     - Azure CLI (az) 설치
@@ -1665,7 +1665,6 @@
 - Azure Developer CLI 및 Azure CLI 인증
         
     ```bash
-    azd auth login
     az login --use-device-code
     ```
 
