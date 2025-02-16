@@ -60,7 +60,30 @@
     - **API 통합**
         - Tool 및 외부 데이터소스 연결
 
-- **Setup: Azure Subscription**
+- **Prerequisites**
+    
+    실습을 완료하기 위해서는 아래 Azure 서비스에 대한 정보가 필요합니다.
+    - Azure Subscription
+    - Azure Bing Search API
+        
+        ![image.png](images/image%208.png)
+        
+        ![image.png](images/image%209.png)
+        
+        ![image.png](images/image%2010.png)
+        
+        ![image.png](images/image%2011.png)
+        
+    - 웹 스크래핑을 위한 APIFY ([https://apify.com/](https://apify.com/))
+        
+        ![image.png](images/image%2012.png)
+        
+        - Profile - Settings - API & Integrations의 Personal API tokens 사용
+
+    - Azure OpenAI Model (Azure AI Foundry > Deployments > gpt-4o > Endpoint)
+
+        ![image.png](images/image%2021.png)    
+    
 
 ## **Hands-on Lab Part 1: Build a Multi-Agent Application (0.5 hours)**
 
@@ -160,9 +183,7 @@
 
     <details>
     <summary>Researcher Prompty 상세보기</summary>
-
-    - Researcher Prompty
-        ```
+       
         ---
         name: Researcher Agent
         description: >-
@@ -221,15 +242,13 @@
 
         user:
         {{instructions}}
-        ```
+
     </details>
 
 
     <details>
     <summary>Writer Prompty 상세보기</summary>
 
-    - Writer Prompty
-        ```
         ---
         name: Writer Agent
         description: This writer agent takes a request from a user as well as research provider by a web researcher to produce a document.
@@ -356,7 +375,7 @@
         Please format the article as markdown but do not include ```markdown``` in the document. If you recieved any feedback 
         return the article and the feedback you recieved seperated by this string '---'. Do not return the feedback if the feedback is No Feedback.
         This means you have not received feedback and you should not return that. 
-        ```
+
     </details>
 
 
@@ -682,27 +701,12 @@
     - 전체적인 이해를 높이기 위해 **추가적인 Context를 제공**
     - 효율성을 위해 **병렬로 작업을 수행**
     
-    **** 의사결정 과정**에 **팀 조율**을 통해 긴밀하게 협력하여 합의를 이루며 충돌나는 의견을 조율 (how to work as a team, decide things together, and handle disagreements)
+    ** **의사결정 과정**에 **팀 조율**을 통해 긴밀하게 협력하여 합의를 이루며 충돌나는 의견을 조율 (how to work as a team, decide things together, and handle disagreements)
     
 
 ### **STEP 2: AutoGen 실습을 위한 환경 설정 (15 minutes)**
 
-- **API KEY 준비**
-    - 검색 (Azure Bing Search)
-        
-        ![image.png](images/image%208.png)
-        
-        ![image.png](images/image%209.png)
-        
-        ![image.png](images/image%2010.png)
-        
-        ![image.png](images/image%2011.png)
-        
-    - 웹 스크래핑을 위한 APIFY ([https://apify.com/](https://apify.com/))
-        
-        ![image.png](images/image%2012.png)
-        
-        - Profile - Settings - API & Integrations의 Personal API tokens 사용
+- **API KEY 준비**: Prerequisite 참고
 
 ### **STEP 3: Notebook 실행 (45 minutes)**
 
@@ -1665,6 +1669,7 @@
 - **가상환경 설정**
     
     ```bash
+    # Python 3.11 필요 (Microsoft Store나 Brew 이용)
     python3 -m venv .magentic-one
     
     source .magentic-one/bin/activate
@@ -1675,14 +1680,7 @@
     ```bash
     # autogen 0.4.0.dev6 버전 사용
     pip install -e .
-    ```
-    
-- Playwright (크로스 브라우저 테스트 자동화를 위한 도구) 설치
-    
-    ```bash
-    playwright install --with-deps chromium
-    ```
-    
+    ```    
 - Docker 설치 (코드 실행환경)
     
     [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
@@ -1694,10 +1692,6 @@
     ENVIRON_KEY_CHAT_COMPLETION_KWARGS_JSON = '{"api_version": "2024-06-01", "azure_endpoint": "<YOUR_ENDPOINT>", "model_capabilities": { "function_calling": true, "json_output": true, "vision": true}, "azure_ad_token_provider": "DEFAULT", "model": "gpt-4o-2024-08-06", "api_key": "<YOUR_API_KEY>", "azure_deployment":"gpt-4o"}'
     ```
     
-- 참고 (Azure AI Foundry > Deployments > gpt-4o > Endpoint)
-![image.png](images/image%2021.png)    
-    
-
 ### **STEP 3: 프로그램 실행 (15 minutes)**
 
 - **Lab 1: Coder와 ComputerTerminal을 이용한 Python 프로그램 실행**
